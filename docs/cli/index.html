@@ -11,7 +11,7 @@
   <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <![endif]-->
-  <title>Swig » Documentation &raquo; CLI</title>
+  <title>Swig » 文档 &raquo; CLI</title>
   
 
   
@@ -32,13 +32,13 @@
   <div class="content row">
     <hgroup class="span7">
       <h1><a href="../../index.html">Swig</a></h1>
-      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
     </hgroup>
     
     <nav class="span5">
       <ul class="mainNav">
-        <li><a href="../index.html">Documentation</a></li>
-        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
+        <li><a href="../index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
       </ul>
     </nav>
   
@@ -50,23 +50,23 @@
 <div class="content row guttered">
   <div class="span9">
   
-<h1>Command-Line Interface</h1>
+<h1>命令行接口</h1>
 
 <section id="install" class="doc">
-  <h2>Installation</h2>
+  <h2>安装</h2>
 
-  <p>Via NPM:</p>
+  <p>通过NPM安装：</p>
   <pre><code data-language="sh">$ npm install swig --global</code></pre>
 </section>
 
 <section id="usage" class="doc">
-  <h2>Usage</h2>
+  <h2>用法</h2>
 
   <pre><code data-language="sh">$ swig compile [file...] [options]
 $ swig render [file...] [options]
 $ swig run [file...] [options]</code></pre>
 
-  <h3>Options</h3>
+  <h3>选项</h3>
   <pre>
 -v, --version  Show the Swig version number.
 -o, --output   Output location. [default: "stdout"]
@@ -83,21 +83,21 @@ $ swig run [file...] [options]</code></pre>
 </section>
 
 <section id="examples" class="doc">
-  <h2>Examples</h2>
+  <h2>例子</h2>
 
-  <p>Render a single file:</p>
+  <p>渲染一个文件：</p>
   <pre><code data-language="sh">$ swig render ./index.html</code></pre>
 
-  <p>Compile and cache a template into a renderable function and minify the output with uglify-js:</p>
+  <p>编译并存储一个模板为一个可渲染的函数，并使用uglify-js压缩输出：</p>
   <pre><code data-language="sh">$ swig compile ./index.html -m > ./cache/index.js</code></pre>
 
-  <p>Run and build the previously cached template:</p>
+  <p>运行编译已经缓存的模板：</p>
   <pre><code data-language="sh">$ swig run ./cache/index.js</code></pre>
 
-  <p>Import a JSON file as the variable context for rendering a template:</p>
+  <p>将一个JSON文件作为变量环境导入并渲染模板：</p>
   <pre><code data-language="sh">$ swig render ./index.html -j ./index.json</code></pre>
 
-  <p>Make your template an AMD module:</p>
+  <p>将你的模板做为一个AMD模块：</p>
   <pre><code data-language="sh">$ swig compile ./index.html --wrap-start="define(function () { return " --wrap-end="; });"</code></pre>
 </section>
 
@@ -107,7 +107,7 @@ $ swig run [file...] [options]</code></pre>
 <nav>
   <ol class="sidenav">
     <li>
-      <a href="../index.html">Getting Started</a>
+      <a href="../index.html">开始</a>
       
     </li>
     <li>
@@ -115,36 +115,36 @@ $ swig run [file...] [options]</code></pre>
       
     </li>
     <li>
-      <a href="../filters/index.html">Filters</a>
+      <a href="../filters/index.html">过滤器</a>
       
     </li>
     <li>
-      <a href="../tags/index.html">Tags</a>
+      <a href="../tags/index.html">标签</a>
       
     </li>
     <li>
-      <a href="../loaders/index.html">Template Loaders</a>
+      <a href="../loaders/index.html">模板加载器</a>
       
     </li>
     <li>
-      <a href="index.html">Command-Line</a>
+      <a href="index.html">命令行</a>
       
 <ol>
-  <li><a href="#install">Installation</a></li>
-  <li><a href="#usage">Usage</a></li>
-  <li><a href="#examples">Examples</a></li>
+  <li><a href="#install">安装</a></li>
+  <li><a href="#usage">用法</a></li>
+  <li><a href="#examples">例子</a></li>
 </ol>
 
     </li>
     <li>
-      <a href="../browser/index.html">Browser Usage</a>
+      <a href="../browser/index.html">浏览器用法</a>
       
     </li>
     <li>
-      <a href="../extending/index.html">Extending Swig</a>
+      <a href="../extending/index.html">扩展Swig</a>
       
     </li>
-    <li><a href="../previous/index.html">Older Versions</a></li>
+    <li><a href="../previous/index.html">旧版本</a></li>
   </ol>
 </nav>
 </div>
