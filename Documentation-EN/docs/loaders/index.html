@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 
-<!-- Mirrored from node-swig.github.io/swig-templates/docs/loaders/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/loaders/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 09:23:23 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
   <meta charset="utf-8">
@@ -11,7 +11,7 @@
   <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <![endif]-->
-  <title>Swig » 文档 &raquo; 模板加载器</title>
+  <title>Swig » Documentation &raquo; Template Loaders</title>
   
 
   
@@ -32,13 +32,13 @@
   <div class="content row">
     <hgroup class="span7">
       <h1><a href="../../index.html">Swig</a></h1>
-      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
+      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
     </hgroup>
     
     <nav class="span5">
       <ul class="mainNav">
-        <li><a href="../index.html">文档</a></li>
-        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
+        <li><a href="../index.html">Documentation</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
       </ul>
     </nav>
   
@@ -50,12 +50,12 @@
 <div class="content row guttered">
   <div class="span9">
   
-<h1>模板加载器</h1>
+<h1>Template Loaders</h1>
 
   
 
   <section id="builtin" class="doc">
-    <h2>内置加载器</h2>
+    <h2>Built-In Loaders</h2>
     
     
       <section id="">
@@ -67,11 +67,11 @@
 
         
 
-  <p>从文件系统中加载模板。</p>
+  <p>Loads templates from the file system.</p>
 
 
 
-        <h4>参数</h4>
+        <h4>Arguments</h4>
         <table>
           <thead>
             <tr>
@@ -129,11 +129,11 @@ swig.setDefaults({ loader: swig.loaders.fs(__dirname + &#39;/templates&#39; )});
 
         
 
-  <p>从一个已经提供的对象映射中加载模板。</p>
+  <p>Loads templates from a provided object mapping.</p>
 
 
 
-        <h4>参数</h4>
+        <h4>Arguments</h4>
         <table>
           <thead>
             <tr>
@@ -187,11 +187,11 @@ swig.setDefaults({ loader: swig.loaders.memory(templates) });</code></pre>
 
   <section id="custom" class="doc">
     
-    <h2>定制加载器</h2>
+    <h2>Custom Loaders</h2>
 
     
 
-  <p>Swig接受自己编写的模板加载器，这样你的模板就可以来自你喜欢的存储媒介，而不必成为核心库的一部分。</p><p>模板加载器由两个方法组成：<var>resolve</var> 和 <var>load</var>。每个方法由Swig在内部使用，在Swig尝试解析和编译之前加载模板的源文件。</p>
+  <p>Swig is able to accept custom template loaders written by you, so that your templates can come from your favorite storage medium without needing to be part of the core library.</p><p>A template loader consists of two methods: <var>resolve</var> and <var>load</var>. Each method is used internally by Swig to find and load the source of the template before attempting to parse and compile it.</p>
 
 
 
@@ -204,7 +204,7 @@ swig.setDefaults({ loader: swig.loaders.memory(templates) });</code></pre>
 
 
 
-        <h4>参数</h4>
+        <h4>Arguments</h4>
         <table>
           <thead>
             <tr>
@@ -243,11 +243,11 @@ swig.setDefaults({ loader: swig.loaders.memory(templates) });</code></pre>
       <h3>load(identifier, cb)</h3>
       
 
-  <p>加载一个模板。Given a unique <var>identifier</var> found by the <var>resolve</var> method this should return the given template.</p>
+  <p>Loads a single template. Given a unique <var>identifier</var> found by the <var>resolve</var> method this should return the given template.</p>
 
 
 
-        <h4>参数</h4>
+        <h4>Arguments</h4>
         <table>
           <thead>
             <tr>
@@ -283,7 +283,7 @@ swig.setDefaults({ loader: swig.loaders.memory(templates) });</code></pre>
     </section>
     
 
-    <h4>例子</h4>
+    <h4>Examples</h4>
     
       <pre><code data-language="js">// A theoretical memcached loader
 var path = require(&#39;path&#39;),
@@ -314,7 +314,7 @@ swig.setDefaults({ loader: memcachedLoader([&#39;192.168.0.2&#39;]) });</code></
 <nav>
   <ol class="sidenav">
     <li>
-      <a href="../index.html">开始</a>
+      <a href="../index.html">Getting Started</a>
       
     </li>
     <li>
@@ -322,15 +322,15 @@ swig.setDefaults({ loader: memcachedLoader([&#39;192.168.0.2&#39;]) });</code></
       
     </li>
     <li>
-      <a href="../filters/index.html">过滤器</a>
+      <a href="../filters/index.html">Filters</a>
       
     </li>
     <li>
-      <a href="../tags/index.html">标签</a>
+      <a href="../tags/index.html">Tags</a>
       
     </li>
     <li>
-      <a href="index.html">模板加载器</a>
+      <a href="index.html">Template Loaders</a>
       
 <ol>
   <li><a href="#builtin">Built-Ins</a></li>
@@ -345,18 +345,18 @@ swig.setDefaults({ loader: memcachedLoader([&#39;192.168.0.2&#39;]) });</code></
 
     </li>
     <li>
-      <a href="../cli/index.html">命令行</a>
+      <a href="../cli/index.html">Command-Line</a>
       
     </li>
     <li>
-      <a href="../browser/index.html">浏览器用法</a>
+      <a href="../browser/index.html">Browser Usage</a>
       
     </li>
     <li>
-      <a href="../extending/index.html">扩展Swig</a>
+      <a href="../extending/index.html">Extending Swig</a>
       
     </li>
-    <li><a href="../previous/index.html">旧版本</a></li>
+    <li><a href="../previous/index.html">Older Versions</a></li>
   </ol>
 </nav>
 </div>
@@ -376,5 +376,5 @@ swig.setDefaults({ loader: memcachedLoader([&#39;192.168.0.2&#39;]) });</code></
 
 </body>
 
-<!-- Mirrored from node-swig.github.io/swig-templates/docs/loaders/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/loaders/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 09:23:23 GMT -->
 </html>

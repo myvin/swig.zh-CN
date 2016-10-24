@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 
-<!-- Mirrored from node-swig.github.io/swig-templates/docs/filters/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/filters/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 09:23:23 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
   <meta charset="utf-8">
@@ -11,7 +11,7 @@
   <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <![endif]-->
-  <title>Swig » 模板 &raquo; 过滤器</title>
+  <title>Swig » Documentation &raquo; Filters</title>
   
 
   
@@ -32,13 +32,13 @@
   <div class="content row">
     <hgroup class="span7">
       <h1><a href="../../index.html">Swig</a></h1>
-      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
+      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
     </hgroup>
     
     <nav class="span5">
       <ul class="mainNav">
-        <li><a href="../index.html">文档</a></li>
-        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
+        <li><a href="../index.html">Documentation</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
       </ul>
     </nav>
   
@@ -50,17 +50,17 @@
 <div class="content row guttered">
   <div class="span9">
   
-<h1 id="built-in">过滤器</h1>
+<h1 id="built-in">Filters</h1>
 
-<p>变量的渲染可以通过过滤器来修改。过滤器是一种特殊的函数，它们使用管道语法可以应用到变量块中的任何对象后面。举个栗子： <code data-language>{{ names|join(', ') }}</code>.</p>
+<p>The rendering of variables can be modified by filters. Filters are special functions that are applied after any object token in a variable block using the pipe character, for example: <code data-language>{{ names|join(', ') }}</code>.</p>
 
-<p>过滤器也可以一个接一个地链式使用。举个栗子：我们有一系列html标签，我们想要移除、拼接、首字母大写：</p>
+<p>Filters can also be chained together, one after another. In this case, we have a list of names in HTML tags that we want to remove, output together, and make title-cased:</p>
 
 <pre><code data-language="swig">// names = ['<p>paul</p>', '<p>jim</p>'];
 {{ names|striptags|join(', ')|title }}
 // => Paul, Jim</code></pre>
 
-<p>Swig的预加载使用了一系列有用的过滤器：</p>
+<p>Swig comes pre-loaded with a set of useful filters:</p>
 
 <hr>
 
@@ -88,21 +88,21 @@
 
     
 
-  <p>反斜杠转义字符需要转义。</p>
+  <p>Backslash-escape characters that need to be escaped.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: Backslash-escaped string.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{{ &quot;\&quot;quoted string\&quot;&quot;|addslashes }}
 // =&gt; \&quot;quoted string\&quot;</code></pre>
@@ -125,21 +125,21 @@
 
     
 
-  <p>实现输入首字母大写，其余小写。</p>
+  <p>Upper-case the first letter of the input and lower-case the rest.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: Returns the same type as the input.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{{ &quot;i like Burritos&quot;|capitalize }}
 // =&gt; I like burritos</code></pre>
@@ -162,12 +162,12 @@
 
     
 
-  <p>格式化日期或日期兼容的字符串。</p>
+  <p>Format a date or Date-compatible string.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -217,14 +217,14 @@
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">string</samp>: Formatted date string.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// now = new Date();
 {{ now|date(&#39;Y-m-d&#39;) }}
@@ -262,12 +262,12 @@
 
     
 
-  <p>如果输入时`undefined`, `null`,或者`false`，需要指定一个默认的返回值。</p>
+  <p>If the input is `undefined`, `null`, or `false`, a default return value can be specified.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -297,14 +297,14 @@
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: `input` or `def` value.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{{ null_value|default(&#39;Tacos&#39;) }}
 // =&gt; Tacos</code></pre>
@@ -328,12 +328,12 @@
 
     
 
-  <p>强制转义变量输出。Optionally use `e` as a shortcut filter name.如果自动转移选项打开，该过滤器会默认应用。</p>
+  <p>Force escape the output of the variable. Optionally use `e` as a shortcut filter name. This filter will be applied by default if autoescape is turned on.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -363,14 +363,14 @@
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">string</samp>: Escaped string.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{{ &quot;&lt;blah&gt;&quot;|escape }}
 // =&gt; &lt;blah&gt;</code></pre>
@@ -414,21 +414,21 @@
 
     
 
-  <p>获取一个数组的第一项或一个字符串的首字母。剩下的其他的对象会尝试返回第一个值变量。</p>
+  <p>Get the first item in an array or character in a string. All other objects will attempt to return the first value available.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: The first item of the array or first character of the string input.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_arr = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 {{ my_arr|first }}
@@ -461,7 +461,7 @@
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -491,14 +491,14 @@
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">object</samp>: Grouped arrays by given key.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// people = [{ age: 23, name: &#39;Paul&#39; }, { age: 26, name: &#39;Jane&#39; }, { age: 23, name: &#39;Jim&#39; }];
 {% for agegroup in people|groupBy(&#39;age&#39;) %}
@@ -534,12 +534,12 @@
 
     
 
-  <p>将输入用一个字符串拼接起来</p>
+  <p>Join the input with a string.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -569,14 +569,14 @@
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">string</samp>: </p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_array = [&#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39;]
 {{ my_array|join(&#39;, &#39;) }}
@@ -604,12 +604,12 @@
 
     
 
-  <p>返回一个JSON</p><p></p><p>向后兼容swig@0.x.x需要使用`json_encode`。</p>
+  <p>Return a string representation of an JavaScript object.</p><p></p><p>Backwards compatible with swig@0.x.x using `json_encode`.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -639,14 +639,14 @@
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">string</samp>: A valid JSON string.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// val = { a: &#39;b&#39; }
 {{ val|json }}
@@ -676,21 +676,21 @@
 
     
 
-  <p>获取一个数组的最后一项或一个字符串的最后一个字符。剩下的所有其他对象会尝试返回最后一个值变量。</p>
+  <p>Get the last item in an array or character in a string. All other objects will attempt to return the last value available.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: The last item of the array or last character of the string.input.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_arr = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 {{ my_arr|last }}
@@ -718,21 +718,21 @@
 
     
 
-  <p>获取数组长度、字符串长度或对象长度（items数）</p>
+  <p>Get the number of items in an array, string, or object.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: The length of the input</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_arr = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 {{ my_arr|length }}
@@ -764,21 +764,21 @@
 
     
 
-  <p>将输入转换为小写字母并返回。</p>
+  <p>Return the input in all lowercase letters.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: Returns the same type as the input.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{{ &quot;FOOBAR&quot;|lower }}
 // =&gt; foobar</code></pre>
@@ -805,7 +805,7 @@
 
     
 
-  <p>考虑到 <a href="#safe">安全性能</a> 已废除。</p>
+  <p>Deprecated in favor of <a href="#safe">safe</a>.</p>
 
 
 
@@ -831,12 +831,12 @@
 
     
 
-  <p>正则匹配并替换，使用的是JavaScript内建String.replace()方法。</p>
+  <p>Returns a new string with the matched search pattern replaced by the given replacement string. Uses JavaScript's built-in String.replace() method.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -886,14 +886,14 @@
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">string</samp>: Replaced string.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_var = &#39;foobar&#39;;
 {{ my_var|replace(&#39;o&#39;, &#39;e&#39;, &#39;g&#39;) }}
@@ -925,21 +925,21 @@
 
     
 
-  <p>将输入倒序返回。是<code data-language="swig">{{ input|sort(true) }}</code>的一个别名。</p>
+  <p>Reverse sort the input. This is an alias for <code data-language="swig">{{ input|sort(true) }}</code>.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">array</samp>: Reversed array. The original input object is returned if it was not an array.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// val = [1, 2, 3];
 {{ val|reverse }}
@@ -961,21 +961,21 @@
 
     
 
-  <p>强制输入不自动转义，只有在你确信在你的页面上渲染的那些内容是安全的情况下再使用它。</p>
+  <p>Forces the input to not be auto-escaped. Use this only on content that you know is safe to be rendered on your page.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: The input exactly how it was given, regardless of autoescaping status.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_var = &quot;&lt;p&gt;Stuff&lt;/p&gt;&quot;;
 {{ my_var|safe }}
@@ -999,12 +999,12 @@
 
     
 
-  <p>将输入升序排列。</p><p>如果给出的是一个对象，则将会将key生成一个排序后的数组返回。</p><p>如果给出的是一个字符串，每个字符将会被单独排序。</p>
+  <p>Sort the input in an ascending direction.</p><p>If given an object, will return the keys as a sorted array.</p><p>If given a string, each character will be sorted individually.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -1034,14 +1034,14 @@
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: Sorted array;</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// val = [2, 6, 4];
 {{ val|sort }}
@@ -1083,21 +1083,21 @@
 
     
 
-  <p>去除HTML标签。</p>
+  <p>Strip HTML tags.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: Returns the same object as the input, but with all string values stripped of tags.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// stuff = &#39;&lt;p&gt;foobar&lt;/p&gt;&#39;;
 {{ stuff|striptags }}
@@ -1121,21 +1121,21 @@
 
     
 
-  <p>大写每个单词的首字母，其他字母小写。</p>
+  <p>Capitalizes every word given and lower-cases all other letters.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: Returns the same object as the input, but with all words in strings title-cased.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_str = &#39;this is soMe text&#39;;
 {{ my_str|title }}
@@ -1163,21 +1163,21 @@
 
     
 
-  <p>移除数组中所有的重复项。</p>
+  <p>Remove all duplicate items from an array.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">array</samp>: Array with unique items. If input was not an array, the original item is returned untouched.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_arr = [1, 2, 3, 4, 4, 3, 2, 1];
 {{ my_arr|uniq|join(&#39;,&#39;) }}
@@ -1203,21 +1203,21 @@
 
     
 
-  <p>将输入的所有字母转换为大写。</p>
+  <p>Convert the input to all uppercase letters. If an object or array is provided, all values will be uppercased.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: Returns the same type as the input, with all strings upper-cased.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_str = &#39;tacos&#39;;
 {{ my_str|upper }}
@@ -1245,21 +1245,21 @@
 
     
 
-  <p>URL-encode一个字符串。</p>
+  <p>URL-encode a string. If an object or array is passed, all values will be URL-encoded.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: URL-encoded string.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_str = &#39;param=1&amp;anotherParam=2&#39;;
 {{ my_str|url_encode }}
@@ -1283,21 +1283,21 @@
 
     
 
-  <p>URL-decode一个字符串。</p>
+  <p>URL-decode a string. If an object or array is passed, all values will be URL-decoded.</p>
 
 
 
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">*</samp>: URL-decoded string.</p>
     
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// my_str = &#39;param%3D1%26anotherParam%3D2&#39;;
 {{ my_str|url_decode }}
@@ -1320,7 +1320,7 @@
 <nav>
   <ol class="sidenav">
     <li>
-      <a href="../index.html">开始</a>
+      <a href="../index.html">Getting Started</a>
       
     </li>
     <li>
@@ -1328,7 +1328,7 @@
       
     </li>
     <li>
-      <a href="index.html">过滤器</a>
+      <a href="index.html">Filters</a>
       
 <ol>
 
@@ -1576,26 +1576,26 @@
 
     </li>
     <li>
-      <a href="../tags/index.html">标签</a>
+      <a href="../tags/index.html">Tags</a>
       
     </li>
     <li>
-      <a href="../loaders/index.html">模板加载器</a>
+      <a href="../loaders/index.html">Template Loaders</a>
       
     </li>
     <li>
-      <a href="../cli/index.html">命令行</a>
+      <a href="../cli/index.html">Command-Line</a>
       
     </li>
     <li>
-      <a href="../browser/index.html">浏览器用法</a>
+      <a href="../browser/index.html">Browser Usage</a>
       
     </li>
     <li>
-      <a href="../extending/index.html">扩展Swig</a>
+      <a href="../extending/index.html">Extending Swig</a>
       
     </li>
-    <li><a href="../previous/index.html">旧版本</a></li>
+    <li><a href="../previous/index.html">Older Versions</a></li>
   </ol>
 </nav>
 </div>
@@ -1615,5 +1615,5 @@
 
 </body>
 
-<!-- Mirrored from node-swig.github.io/swig-templates/docs/filters/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/filters/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 09:23:23 GMT -->
 </html>

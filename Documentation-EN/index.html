@@ -1,0 +1,153 @@
+
+  
+<!doctype html>
+<html>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 09:23:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  
+  <!--[if IE]>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <![endif]-->
+  <title>Swig - A Node.js and Browser JavaScript Template Engine</title>
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="css/swig.css">
+
+
+
+</head>
+<body class="">
+
+  
+
+
+<header class="header">
+  <div class="content row">
+    <hgroup class="span7">
+      <h1><a href="index.html">Swig</a></h1>
+      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
+    </hgroup>
+    
+    <nav class="span5">
+      <ul class="mainNav">
+        <li><a href="docs/index.html">Documentation</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
+      </ul>
+    </nav>
+  
+  </div>
+</header>
+
+
+
+
+<section class="content">
+  <h1>Swig</h1>
+
+  <div class="row guttered">
+    <p class="span6">A simple, powerful, and extendable JavaScript Template Engine.</p>
+    <p class="span6">Current Version: <strong>v2.0.0</strong>. <a href="docs/previous/index.html">Looking for an older version?</a></p>
+  </div>
+
+  <hr class="small">
+
+  <div class="row guttered">
+
+    <section class="span6">
+      <h2>Super Quick Start</h2>
+
+      <p>For a more in-depth intro, check out the <a href="docs/index.html">Getting Started docs</a>.</p>
+
+      <h3>Install Swig</h3>
+      <pre><code>npm install swig --save</code></pre>
+
+      <h3>Create Your Template</h3>
+      <pre><code data-language="swig">&lt;h1&gt;{{ pagename|title }}&lt;/h1&gt;
+&lt;ul&gt;
+{% for author in authors %}
+  &lt;li{% if loop.first %} class="first"{% endif %}&gt;
+    {{ author }}
+  &lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;</code></pre>
+
+      <h3>Render Your Template</h3>
+      <pre><code data-language="javascript">var swig  = require('swig');
+swig.renderFile('/path/to/template.html', {
+    pagename: 'awesome people',
+    authors: ['Paul', 'Jim', 'Jane']
+});</code></pre>
+
+      <h3>The End Result</h3>
+      <pre><code data-language="html">&lt;h1&gt;Awesome People&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li class="first"&gt;Paul&lt;/li&gt;
+  &lt;li&gt;Jim&lt;/li&gt;
+  &lt;li&gt;Jane&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </section>
+
+    <section class="span6">
+      <h2>Features</h2>
+      <ul>
+        <li>Available for node.js <em>and</em> major web browsers!</li>
+        <li>Uses similar methodologies as Django, Jinja2, and Twig template engines.</li>
+        <li><a href="http://expressjs.com/">Express</a> compatible.</li>
+        <li>Object-Oriented template inheritance.</li>
+        <li>Apply filters and transformations to output in your templates.</li>
+        <li>Automatically escapes all output for safe HTML rendering.</li>
+        <li>Lots of iteration and conditionals supported.</li>
+        <li>Robust without the bloat.</li>
+        <li>Extendable and customizable.</li>
+        <li>Great <a href="coverage.html">code coverage</a>.</li>
+      </ul>
+
+      <hr class="small">
+
+      <h2>Download For the Browser</h2>
+      <p>Swig also works in all major browsers. Just download the following file and follow the <a href="docs/index.html#browser">Documentation</a>.</p>
+      <p class="download">
+        <a href="js/swig.min.js" class="btn">Download v2.0.0</a><br><br>
+        <a href="js/swig.js">Development</a> | <a href="js/swig.min.js">Production</a> (<a href="js/swig.js.json">source map</a>)
+      </p>
+
+      <hr class="small">
+
+      <h2>Resources</h2>
+
+       <ul>
+         <li><a href="https://groups.google.com/forum/#!forum/swig-templates">Mailing List</a></li>
+         <li><a href="https://travis-ci.org/paularmstrong/swig/builds">Travis CI Build History</a></li>
+         <li><a href="https://github.com/paularmstrong/swig/issues">Bug Reports</a></li>
+         <li><a href="http://stackoverflow.com/questions/tagged/swig-template">Stack Overflow Questions</a></li>
+         <li><a href="https://github.com/jonschlinkert/sublime-swig">Syntax Highlighting for Sublime Text</a></li>
+       </ul>
+
+    </section>
+
+  </div>
+</section>
+
+
+<footer class="content">
+  <hr class="small">
+  <p>Swig is copyright &copy;2016 <a href="http://paularmstrongdesigns.com/">Paul Armstrong</a>, licensed for use under the permissive MIT Open Source License.</p>
+  <a class="forkme" href="https://github.com/paularmstrong/swig">Fork me on GitHub</a>
+</footer>
+
+
+  
+<script src="js/lib/rainbow.min.js"></script>
+<script src="js/master.js"></script>
+
+</body>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 09:23:20 GMT -->
+</html>

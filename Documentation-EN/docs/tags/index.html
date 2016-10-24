@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 
-<!-- Mirrored from node-swig.github.io/swig-templates/docs/tags/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/tags/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 09:23:23 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
   <meta charset="utf-8">
@@ -11,7 +11,7 @@
   <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <![endif]-->
-  <title>Swig » 文档 &raquo; 标签</title>
+  <title>Swig » Documentation &raquo; Tags</title>
   
 
   
@@ -32,13 +32,13 @@
   <div class="content row">
     <hgroup class="span7">
       <h1><a href="../../index.html">Swig</a></h1>
-      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
+      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
     </hgroup>
     
     <nav class="span5">
       <ul class="mainNav">
-        <li><a href="../index.html">文档</a></li>
-        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
+        <li><a href="../index.html">Documentation</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
       </ul>
     </nav>
   
@@ -50,7 +50,7 @@
 <div class="content row guttered">
   <div class="span9">
   
-<h1 id="tags">标签</h1>
+<h1 id="tags">Tags</h1>
 
 
   
@@ -67,12 +67,12 @@
 
     
 
-  <p>控制变量输出的自动转义。</p>
+  <p>Control auto-escaping of variable output from within your templates.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -100,7 +100,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// myvar = &#39;&lt;foo&gt;&#39;;
 {% autoescape true %}{{ myvar }}{% endautoescape %}
@@ -130,12 +130,12 @@
 
     
 
-  <p>Defines a block in a template that can be overridden by a template extending this one and/or will override the current template's parent template block of the same name.</p><p></p><p>查看 <a href="#inheritance">模板继承</a> 获取更多信息。</p>
+  <p>Defines a block in a template that can be overridden by a template extending this one and/or will override the current template's parent template block of the same name.</p><p></p><p>See <a href="#inheritance">Template Inheritance</a> for more information.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -163,7 +163,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% block body %}...{% endblock %}</code></pre>
     
@@ -187,7 +187,7 @@
 
     
 
-  <p>和<code data-language="swig">{% if %}</code> 标签一起使用，直到遇到 <code data-language="swig">{% endif %}</code> 或者 <i>if</i> 表达式返回false。</p>
+  <p>Used within an <code data-language="swig">{% if %}</code> tag, the code block following this tag up until <code data-language="swig">{% endif %}</code> will be rendered if the <i>if</i> statement returns false.</p>
 
 
 
@@ -196,7 +196,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% if false %}
   statement1
@@ -223,12 +223,12 @@
 
     
 
-  <p>和 <code data-language="swig">{% else %}</code>类似。</p>
+  <p>Like <code data-language="swig">{% else %}</code>, except this tag can take more conditional statements.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -256,7 +256,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% if false %}
   Tacos
@@ -285,12 +285,12 @@
 
     
 
-  <p>将当前模板扩展为一个父级模板。该标签必须是模板的第一项。</p><p></p><p>查看 <a href="#inheritance">模板继承</a> 获取更多信息。</p>
+  <p>Makes the current template extend a parent template. This tag must be the first item in your template.</p><p></p><p>See <a href="#inheritance">Template Inheritance</a> for more information.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -318,7 +318,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% extends &quot;./layout.html&quot; %}</code></pre>
     
@@ -342,12 +342,12 @@
 
     
 
-  <p>为整个块应用过滤器。</p>
+  <p>Apply a filter to an entire block of template.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -375,7 +375,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% filter uppercase %}oh hi, {{ name }}{% endfilter %}
 // =&gt; OH HI, PAUL</code></pre>
@@ -419,12 +419,12 @@
 
     
 
-  <p>遍历对象和数组。</p>
+  <p>Loop over objects and arrays.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -474,7 +474,7 @@
     
 
     
-    <h3>返回</h3>
+    <h3>Returns</h3>
     
     <p><samp data-language="js">loop.index</samp>: The current iteration of the loop (1-indexed)</p>
     
@@ -493,7 +493,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// obj = { one: &#39;hi&#39;, two: &#39;bye&#39; };
 {% for x in obj %}
@@ -557,12 +557,12 @@
 
     
 
-  <p>创建条件表达式。兼容大部分JavaScript的合法比较条件。</p><p></p><p>可以结合 <a href="#elseif"><code data-language="swig">{% elseif ... %}</code></a> 标签和 <a href="#else"><code data-language="swig">{% else %}</code></a> 标签一起使用。</p>
+  <p>Used to create conditional statements in templates. Accepts most JavaScript valid comparisons.</p><p></p><p>Can be used in conjunction with <a href="#elseif"><code data-language="swig">{% elseif ... %}</code></a> and <a href="#else"><code data-language="swig">{% else %}</code></a> tags.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -590,7 +590,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% if x %}{% endif %}
 {% if !x %}{% endif %}
@@ -638,12 +638,12 @@
 
     
 
-  <p>允许从其他文件将宏指令直接导入得到当前环境。</p><p>The import tag is specifically designed for importing macros into your template with a specific context scope. This is very useful for keeping your macros from overriding template context that is being injected by your server-side page generation.</p>
+  <p>Allows you to import macros from another file directly into your current context.</p><p>The import tag is specifically designed for importing macros into your template with a specific context scope. This is very useful for keeping your macros from overriding template context that is being injected by your server-side page generation.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -687,7 +687,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% import &#39;./formmacros.html&#39; as form %}
 {{ form.input(&quot;text&quot;, &quot;name&quot;) }}
@@ -767,12 +767,12 @@
 
     
 
-  <p>引入模板，该模板会在当前变量环境中被渲染。</p>
+  <p>Includes a template partial in place. The template is rendered within the current locals variable context.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -832,7 +832,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// food = &#39;burritos&#39;;
 // drink = &#39;lemonade&#39;;
@@ -916,12 +916,12 @@
 
     
 
-  <p>在模板中创建特定的、可重用的代码片段。</p><p>可以使用<a href="#import"><code data-language="swig">{% import ... %}</code></a> 标签从一个模板导入到另一个模板。</p>
+  <p>Create custom, reusable snippets within your templates.</p><p>Can be imported from one template to another using the <a href="#import"><code data-language="swig">{% import ... %}</code></a> tag.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -949,7 +949,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% macro input(type, name, id, label, value, error) %}
   &lt;label for=&quot;{{ name }}&quot;&gt;{{ label }}&lt;/label&gt;
@@ -988,7 +988,7 @@
 
     
 
-  <p>将父级模板同名块中的内容导入到当前块中。</p><p></p><p>查看 <a href="#inheritance">模板继承</a> 获取更多信息。</p>
+  <p>Inject the content from the parent template's block of the same name into the current block.</p><p></p><p>See <a href="#inheritance">Template Inheritance</a> for more information.</p>
 
 
 
@@ -997,7 +997,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% extends &quot;./foo.html&quot; %}
 {% block content %}
@@ -1037,7 +1037,7 @@
 
     
 
-  <p>强制内容不进行自动转义。所有的swig指令豆浆会被忽略，内容会原样渲染。</p>
+  <p>Forces the content to not be auto-escaped. All swig instructions will be ignored and the content will be rendered exactly as it was given.</p>
 
 
 
@@ -1046,7 +1046,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">// foobar = &#39;&lt;p&gt;&#39;
 {% raw %}{{ foobar }}{% endraw %}
@@ -1070,12 +1070,12 @@
 
     
 
-  <p>设置变量，以便在当前环境中重用。该操作将会覆写任何已经设置并给出<var>varname</var>的值。</p>
+  <p>Set a variable for re-use in the current context. This will over-write any value already set to the context for the given <var>varname</var>.</p>
 
 
 
     
-    <h3>参数</h3>
+    <h3>Parameters</h3>
     <table>
       <thead>
         <tr>
@@ -1119,7 +1119,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% set foo = &quot;anything!&quot; %}
 {{ foo }}
@@ -1167,7 +1167,7 @@
 
     
 
-  <p>尝试移除HTML标签之间的空白符。请自行考虑使用风险。</p>
+  <p>Attempts to remove whitespace between HTML tags. Use at your own risk.</p>
 
 
 
@@ -1176,7 +1176,7 @@
     
 
     
-    <h3>例子</h3>
+    <h3>Examples</h3>
     
     <pre><code data-language="swig">{% spaceless %}
   {% for num in foo %}
@@ -1204,7 +1204,7 @@
 <nav>
   <ol class="sidenav">
     <li>
-      <a href="../index.html">开始</a>
+      <a href="../index.html">Getting Started</a>
       
     </li>
     <li>
@@ -1212,11 +1212,11 @@
       
     </li>
     <li>
-      <a href="../filters/index.html">过滤器</a>
+      <a href="../filters/index.html">Filters</a>
       
     </li>
     <li>
-      <a href="index.html">标签</a>
+      <a href="index.html">Tags</a>
       
 <ol>
   
@@ -1570,22 +1570,22 @@
 
     </li>
     <li>
-      <a href="../loaders/index.html">模板加载器</a>
+      <a href="../loaders/index.html">Template Loaders</a>
       
     </li>
     <li>
-      <a href="../cli/index.html">命令行</a>
+      <a href="../cli/index.html">Command-Line</a>
       
     </li>
     <li>
-      <a href="../browser/index.html">浏览器用法</a>
+      <a href="../browser/index.html">Browser Usage</a>
       
     </li>
     <li>
-      <a href="../extending/index.html">扩展wig</a>
+      <a href="../extending/index.html">Extending Swig</a>
       
     </li>
-    <li><a href="../previous/index.html">旧版本</a></li>
+    <li><a href="../previous/index.html">Older Versions</a></li>
   </ol>
 </nav>
 </div>
@@ -1605,5 +1605,5 @@
 
 </body>
 
-<!-- Mirrored from node-swig.github.io/swig-templates/docs/tags/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/tags/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 09:23:23 GMT -->
 </html>
