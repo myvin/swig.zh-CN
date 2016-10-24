@@ -1,5 +1,5 @@
 # swig.zh-CN
-[swig.zh-CN](myvin.github.io/swig.zh-CN)是对[该英文网站](http://node-swig.github.io/swig-templates/)（swig现在没有官方网站的英文文档根据自己理解制作的中文翻译文档手册:[swig中文手册](myvin.github.io/swig.zh-CN)。
+[swig.zh-CN](http://myvin.github.io/swig.zh-CN)是对[该英文网站](http://node-swig.github.io/swig-templates/)（swig现在没有官方网站的英文文档根据自己理解制作的中文翻译文档手册:[swig中文手册](http://myvin.github.io/swig.zh-CN)。
 
 关于swig开源项目，请访问swig的[GitHub主页](https://github.com/paularmstrong/swig)。
 
