@@ -79,7 +79,7 @@ console.log(swig.render('{% if foo %}Hooray!{% endif %}', { locals: { foo: true 
 <section id="variables" class="doc">
   <h2>变量</h2>
 
-  <p>传给模板的变量可以使用双大括号<code data-language="swig">{{}}</code>来输出。所有的输出变量都会<strong>自动转义</strong>，包括异常的<a href="#variable-functions">函数输出</a>。</p>
+  <p>传给模板的变量使用双大括号<code data-language="swig">{{}}</code>来输出。所有的输出变量都会<strong>自动转义</strong>，但是<a href="#variable-functions">函数输出</a>例外。</p>
 
   <h3>标记</h3>
   <p>访问对象的属性既可以使用点标记法，也可以使用方括号标记法。下面给的两个例子是等价的：</p>
@@ -88,33 +88,33 @@ console.log(swig.render('{% if foo %}Hooray!{% endif %}', { locals: { foo: true 
 // is equivalent to
 {{ foo['bar'] }}</code></pre>
 
-  <p>标记样式遵循JavaScript的规则。如果键值中包括非字母数字，则必须使用方括号标记法来访问，不能使用点标记法来访问。</p>
+  <p>标记样式遵循和JavaScript相同的规则。如果键值中包括非字母数字的字符，则必须使用方括号标记法来访问，不能使用点标记法来访问。</p>
 
   <h4>错误！</h4>
   <pre><code data-language="swig">{{ foo.chicken-tacos }}</code></pre>
-  <p>上面的例子将会尝试从 <var>foo.chicken</var> 去除<var>tacos</var>：
+  <p>上面的例子表达出的意思是从 <var>foo.chicken</var> 中去除<var>tacos</var>：
 <code data-language="swig">{{ foo.chicken - tacos }}</code></p>
 
   <h4>正确！</h4>
   <pre><code data-language="swig">{{ foo['chicken-tacos'] }}</code></pre>
 
   <h3>未定义和假值（Undefined vs Falsy Values）</h3>
-  <p>如果有变量没有定义，不要担心，你的模板不会奔溃，它会已一个空字符串来代替输出。但是，一些像<code data-language="js">null, false, 0</code>的假值（falsy values）会原样渲染。</p>
+  <p>如果有变量没有定义，不要担心，你的模板不会奔溃，它会以一个空字符串来代替输出。但是，一些像<code data-language="js">null, false, 0</code>的假值（falsy values）则会原样渲染。</p>
 
   <h3>过滤器</h3>
-  <p><a href="filters/index.html">过滤器</a>是一种特殊的、链式控制结构，可以通过使用<a href="filters/index.html">过滤器</a>来修改变量：</p>
+  <p><a href="filters/index.html">过滤器</a>是一种特殊的、链式控制结构，它可以用来修改变量：</p>
 
   <pre><code data-language="swig">{{ name|title }} was born on {{ birthday|date('F jS, Y') }}</code>
 // => <samp>Jane was born on July 6th, 1985</samp></pre>
 
   <h3 id="variable-functions">函数</h3>
-  <p>变量也可以是JavaScript函数。请注意：函数会忽略 <a href="api/index.html#SwigOpts">自动转义设置</a>, 函数也<em>不会</em>自动转义。</p>
+  <p>变量也可以是JavaScript函数。但是请注意：函数会忽略 <a href="api/index.html#SwigOpts">自动转义设置</a>, <em>不会</em>自动转义。</p>
 
   <pre><code data-language="js">var locals = { mystuff: function mystuff() { return '<p>Things!</p>'; } };
 swig.render('{{ mystuff() }}', { locals: locals });
 // => &lt;p&gt;Things!&lt;/p&gt;</code></pre>
 
-  <p>如果想强制转义函数输出，放到<a href="filters/index.html#escape">转义过滤器</a>的位置即可。</p>
+  <p>如果需要强制转义函数输出，则使用管道语法添加<a href="filters/index.html#escape">转义过滤器</a>即可。</p>
 
   <pre><code data-language="swig">{{ mystuff()|escape }}
 // => &amp;lt;p&amp;gt;Things&amp;lt;/p&amp;gt;</code></pre>
@@ -123,7 +123,7 @@ swig.render('{{ mystuff() }}', { locals: locals });
 <section id="tags" class="doc">
   <h2>逻辑标签</h2>
 
-  <p>Swig包括一些被称为 <a href="#tags">标签（Tags）</a>的逻辑操作块，比起变量输出，使用逻辑标记能够控制大范围的输出。在书写标签时使用括号-百分号的语法：。</p>
+  <p>Swig包括一些被称为 <a href="#tags">标签（Tags）</a>的逻辑操作块，比起变量输出，使用逻辑标签能够控制大范围的输出。在书写标签时使用 括号-百分号 的语法：。</p>
 
   <pre><code data-language="swig">{% if foo %}bar{% endif %}
 
@@ -146,13 +146,13 @@ swig.render('{{ mystuff() }}', { locals: locals });
   {% endif the above will render if foo == true %}
 {% endblock burritos %}</code></pre>
 
-  <p>查看<a href="tags/index.html">标记文档</a> 获取更加全面的标记列表和使用指导。</p>
+  <p>查看<a href="tags/index.html">标签文档</a> 获取更加全面的标签列表和使用指导。</p>
 </section>
 
 <section id="comments" class="doc">
   <h2>注释</h2>
 
-  <p>注释标记会被解析器忽略。在模板被渲染之前它们会被移除，这样的话除非有源代码权限，否则其他人无法看到这些注释。注释使用括号-#的语法来书写：</p>
+  <p>注释标记会被解析器忽略。在模板被渲染之前注释标签会被移除，如此一来，除非有源代码权限，否则其他人无法看到这些注释。注释使用 括号-# 的语法：</p>
 
   <pre><code data-language="swig">{#
 This is a comment.
@@ -163,16 +163,16 @@ It will be fully stripped and ignored during parsing.
 <section id="whitespace" class="doc">
   <h2>空白符控制</h2>
 
-  <p>模板中的任何空白符都会留在最终输出的模板中。但是，可以在逻辑标签周围使用空白符控制来控制空白符。</p>
+  <p>模板中的任何空白符都会留在最终输出的模板中。但是，可以在逻辑标签周围使用空白符控制来控制空白符的显示。</p>
 
-  <p>要移除掉空白符，只要在标签的开始或结束为止添加一个-(<code data-language="swig">-</code>)即可分别移除前后的空白符。</p>
+  <p>如果需要移除掉空白符，只要在标签的开始或结束为止添加一个短横线(<code data-language="swig">-</code>)即可分别移除前后的空白符。</p>
 
   <pre><code data-language="swig">// seq = [1, 2, 3, 4, 5]
 {% for item in seq -%}{{ item }}
 {%- endfor %}</code>
 // => <samp>12345</samp></pre>
 
-  <p><em>注意：在开/闭标签和-之前<strong>一定不能有</strong>任何的空格。</em></p>
+  <p><em>注意：在开/闭标签和短横线之间<strong>一定不能有</strong>任何空白。</em></p>
 
 </section>
 
@@ -286,7 +286,7 @@ console.log('Application Started on http://localhost:1337/');
       
     </li>
     <li>
-      <a href="browser/index.html">在浏览器中的使用</a>
+      <a href="browser/index.html">浏览器用法</a>
       
     </li>
     <li>
