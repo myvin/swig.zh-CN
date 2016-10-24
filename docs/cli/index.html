@@ -90,16 +90,16 @@ $ swig run [file...] [options]</code></pre>
   <p>渲染一个文件：</p>
   <pre><code data-language="sh">$ swig render ./index.html</code></pre>
 
-  <p>编译并存储一个模板为一个可渲染的函数，并使用uglify-js压缩输出：</p>
+  <p>编译并将一个模板存储为一个可渲染的函数，且使用uglify-js来压缩输出：</p>
   <pre><code data-language="sh">$ swig compile ./index.html -m > ./cache/index.js</code></pre>
 
-  <p>运行编译已经缓存的模板：</p>
+  <p>运行、编译已经缓存的模板：</p>
   <pre><code data-language="sh">$ swig run ./cache/index.js</code></pre>
 
-  <p>将一个JSON文件作为变量环境导入并渲染模板：</p>
+  <p>将一个JSON文件作为变量环境导入来渲染模板：</p>
   <pre><code data-language="sh">$ swig render ./index.html -j ./index.json</code></pre>
 
-  <p>将你的模板做为一个AMD模块：</p>
+  <p>将你的模板生成为一个AMD模块：</p>
   <pre><code data-language="sh">$ swig compile ./index.html --wrap-start="define(function () { return " --wrap-end="; });"</code></pre>
 </section>
 

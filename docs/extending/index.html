@@ -63,7 +63,7 @@
   <section class="doc">
     
 
-  <p>过滤器能对输入参数执行转换。</p><p>过滤器是在渲染时间执行的，所以不管怎么样塔门都不会直接修改编译后的模板结构。</p><p>Swig所有的内置过滤器都是以同样的方式编写的。查看更多的栗子，请在Swig源码中参考 `filters.js` 文件。</p><p></p><p>如需禁止定制过滤器的自动转义，给过滤器方法增加 `safe = true;` 属性即可，这样无论Swig的全局设置是什么，输出都不会被转义。</p>
+  <p>过滤器能对输入参数执行转换。</p><p>过滤器是在渲染时间执行的，所以不管怎么样它们都不会直接修改编译后的模板结构。</p><p>Swig所有的内置过滤器都是以同样的方式编写的。查看更多的栗子，请在Swig源码中参考 `filters.js` 文件。</p><p></p><p>如需禁止定制过滤器的自动转义，给过滤器方法增加 `safe = true;` 属性即可，这样无论Swig的全局设置是什么，输出都不会被转义。</p>
 
 
 
@@ -646,7 +646,7 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
   <section id="ends" class="doc">
     <h3>ends</h3>
 
-    <p>当一个标签在模板中被声明后，控制该标签时候是否必须有一个<code data-language="swig">{% end[tagName] %}</code> 。</p>
+    <p>当一个标签在模板中被声明后，控制该标签时是否必须有一个<code data-language="swig">{% end[tagName] %}</code> 。</p>
 
     <pre><code data-language="js">exports.ends = true;
 // => A template that fails to close this tag will throw an Error.</code></pre>

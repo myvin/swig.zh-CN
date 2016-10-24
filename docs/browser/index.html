@@ -58,7 +58,7 @@
 
 <p>简单的说，如果没有提前被告知<var>./myfile.html</var>，则Swig无法确定指令<code data-language="swig">{% extends "./myfile.html" %}</code> 和 <code data-language="swig">{% include "./myfile.html" %}</code>中的文件。</p>
 
-<p>关于这点最好的方式就是使用 <a href="../cli/index.html">命令行接口</a> 预编译你的模板。</p>
+<p>关于这点最好的方式就是使用 <a href="../cli/index.html">命令行接口</a> 来预编译你的模板。</p>
 
 <ol>
   <li>
@@ -66,7 +66,7 @@
     <pre><code data-language="sh">$ swig compile myfile.html --method-name=myfile > myfile.js</code></pre>
   </li>
   <li>
-    <p>将Swig和 <samp>myfile.js</samp> 引入浏览器。</p>
+    <p>将Swig和 <samp>myfile.js</samp> 添加到网页中。</p>
     <pre><code data-language="html">&lt;script src="swig.min.js"&gt;&lt;/script&gt;
 &lt;script src="myfile.js"&gt;&lt;/script&gt;
 </code></pre>
@@ -76,7 +76,7 @@
     <pre><code data-language="js">swig.run(myfile, {}, '/myfile.html');</code></pre>
   </li>
   <li>
-    <p>现在，你就可以在浏览器中渲染模板了，并可以导出 <samp>myfile.html</samp></p>
+    <p>现在，你就可以在浏览器中渲染模板了，并可以扩展 <samp>myfile.html</samp></p>。
     <pre><code data-language="js">var tpl = '{% extends "./myfile.html" %}{% block content %}{{ stuff }}{% endblock %}';
 var output = swig.render(tpl, { filename: '/tpl', locals: { stuff: 'awesome' }});
 document.querySelector('#foo').innerHTML = output;</code></pre>
