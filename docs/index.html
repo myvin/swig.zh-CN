@@ -11,7 +11,7 @@
   <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <![endif]-->
-  <title>Swig » Documentation</title>
+  <title>Swig » 文档</title>
   
 
   
@@ -32,13 +32,13 @@
   <div class="content row">
     <hgroup class="span7">
       <h1><a href="../index.html">Swig</a></h1>
-      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
     </hgroup>
     
     <nav class="span5">
       <ul class="mainNav">
-        <li><a href="index.html">Documentation</a></li>
-        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
+        <li><a href="index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
       </ul>
     </nav>
   
@@ -50,20 +50,20 @@
 <div class="content row guttered">
   <div class="span9">
   
-<h1>Getting Started</h1>
+<h1>开始</h1>
 
 <section id="install" class="doc">
-  <h2>Installation</h2>
+  <h2>安装</h2>
 
-  <p>Via NPM:</p>
+  <p>通过NPM安装:</p>
 
   <pre><code data-language="sh">$ npm install swig --save</code></pre>
 </section>
 
 <section id="usage" class="doc">
-  <h2>Basic Usage</h2>
+  <h2>基本使用方法</h2>
 
-  <p>Swig has multiple ways to compile and render templates. Check the <a href="api/index.html">API documentation</a> for more detailed information and usage.</p>
+  <p>Swig有多种方式编译、渲染模板。更多详细信息和使用方法请查看<a href="api/index.html">API文档</a>。</p>
 
   <pre><code data-language="js">var swig = require('swig');
 
@@ -77,53 +77,53 @@ console.log(swig.render('{% if foo %}Hooray!{% endif %}', { locals: { foo: true 
 </section>
 
 <section id="variables" class="doc">
-  <h2>Variables</h2>
+  <h2>变量</h2>
 
-  <p>Variables that are passed to templates can be output using double-curly-brackets: <code data-language="swig"></code>. All variable output is automatically <strong>autoescaped</strong>, with the exception of <a href="#variable-functions">function output</a>.</p>
+  <p>传给模板的变量可以使用双大括号<code data-language="swig">{{}}</code>来输出。所有的输出变量都会<strong>自动转义</strong>，包括异常的<a href="#variable-functions">函数输出</a>。</p>
 
-  <h3>Notation</h3>
-  <p>Accessing properties of objects can be done using either dot-notation or bracket-notation. The following examples are equivalent:</p>
+  <h3>标记</h3>
+  <p>访问对象的属性既可以使用点标记法，也可以使用方括号标记法。下面给的两个例子是等价的：</p>
 
   <pre><code data-language="swig">{{ foo.bar }}
 // is equivalent to
 {{ foo['bar'] }}</code></pre>
 
-  <p>However, notation style follows the same rules as JavaScript. If a key includes non-alpha-numeric characters, it must be accessed using bracket-notation, not dot-notation.</p>
+  <p>标记样式遵循JavaScript的规则。如果键值中包括非字母数字，则必须使用方括号标记法来访问，不能使用点标记法来访问。</p>
 
-  <h4>Bad!</h4>
+  <h4>错误！</h4>
   <pre><code data-language="swig">{{ foo.chicken-tacos }}</code></pre>
-  <p>The above would be the same as attempting to subract <var>tacos</var> from <var>foo.chicken</var>:
+  <p>上面的例子将会尝试从 <var>foo.chicken</var> 去除<var>tacos</var>：
 <code data-language="swig">{{ foo.chicken - tacos }}</code></p>
 
-  <h4>Good!</h4>
+  <h4>正确！</h4>
   <pre><code data-language="swig">{{ foo['chicken-tacos'] }}</code></pre>
 
-  <h3>Undefined vs Falsy Values</h3>
-  <p>If a variable is not defined, don't worry, your template won't explode. Instead, an empty-string will be output in its place. However, falsy values like <code data-language="js">null, false, 0</code> will be rendered as they are.</p>
+  <h3>未定义和假值（Undefined vs Falsy Values）</h3>
+  <p>如果有变量没有定义，不要担心，你的模板不会奔溃，它会已一个空字符串来代替输出。但是，一些像<code data-language="js">null, false, 0</code>的假值（falsy values）会原样渲染。</p>
 
-  <h3>Filters</h3>
-  <p>Variables can be modified using using special, chainable control structures called <a href="filters/index.html">Filters</a>:</p>
+  <h3>过滤器</h3>
+  <p><a href="filters/index.html">过滤器</a>是一种特殊的、链式控制结构，可以通过使用<a href="filters/index.html">过滤器</a>来修改变量：</p>
 
   <pre><code data-language="swig">{{ name|title }} was born on {{ birthday|date('F jS, Y') }}</code>
 // => <samp>Jane was born on July 6th, 1985</samp></pre>
 
-  <h3 id="variable-functions">Functions</h3>
-  <p>Variables can also be JavaScript functions. It is important to note that, regardless of your <a href="api/index.html#SwigOpts">autoescape setting</a>, functions will <em>not</em> be auto-escaped.</p>
+  <h3 id="variable-functions">函数</h3>
+  <p>变量也可以是JavaScript函数。请注意：函数会忽略 <a href="api/index.html#SwigOpts">自动转义设置</a>, 函数也<em>不会</em>自动转义。</p>
 
   <pre><code data-language="js">var locals = { mystuff: function mystuff() { return '<p>Things!</p>'; } };
 swig.render('{{ mystuff() }}', { locals: locals });
 // => &lt;p&gt;Things!&lt;/p&gt;</code></pre>
 
-  <p>If you want to enforce escaping output on functions, just pipe them to the <a href="filters/index.html#escape">escape filter</a>.</p>
+  <p>如果想强制转义函数输出，放到<a href="filters/index.html#escape">转义过滤器</a>的位置即可。</p>
 
   <pre><code data-language="swig">{{ mystuff()|escape }}
 // => &amp;lt;p&amp;gt;Things&amp;lt;/p&amp;gt;</code></pre>
 </section>
 
 <section id="tags" class="doc">
-  <h2>Logic Tags</h2>
+  <h2>逻辑标签</h2>
 
-  <p>Swig includes some basic operational blocks, called <a href="#tags">Tags</a>, for helping you control output on a larger scale than variables. Tags are written using curly-percent syntax: .</p>
+  <p>Swig包括一些被称为 <a href="#tags">标签（Tags）</a>的逻辑操作块，比起变量输出，使用逻辑标记能够控制大范围的输出。在书写标签时使用括号-百分号的语法：。</p>
 
   <pre><code data-language="swig">{% if foo %}bar{% endif %}
 
@@ -135,7 +135,7 @@ swig.render('{{ mystuff() }}', { locals: locals });
 {% endfor %}
 </code></pre>
 
-  <p><code>end</code> tags may also have any set of extra context within them, and will just be ignore. This is useful for scoping and understanding which block you are closing and where.</p>
+  <p><code>结束</code> 标签可能含有的多余的文本会被忽略。这有助于我们查看和理解哪些是要闭合的块和闭合的块的位置。</p>
 
   <pre><code data-language="swig">{% block tacos %}
   //...
@@ -146,13 +146,13 @@ swig.render('{{ mystuff() }}', { locals: locals });
   {% endif the above will render if foo == true %}
 {% endblock burritos %}</code></pre>
 
-  <p>View the <a href="tags/index.html">Tags documentation</a> for a full list of tags and usage instructions.</p>
+  <p>查看<a href="tags/index.html">标记文档</a> 获取更加全面的标记列表和使用指导。</p>
 </section>
 
 <section id="comments" class="doc">
-  <h2>Comments</h2>
+  <h2>注释</h2>
 
-  <p>Comment tags are simply ignored by the parser. They will removed before your templates are rendered so that no one can see them unless they have access to your source code. Comments are written using the curly-hash syntax:</p>
+  <p>注释标记会被解析器忽略。在模板被渲染之前它们会被移除，这样的话除非有源代码权限，否则其他人无法看到这些注释。注释使用括号-#的语法来书写：</p>
 
   <pre><code data-language="swig">{#
 This is a comment.
@@ -161,25 +161,25 @@ It will be fully stripped and ignored during parsing.
 </section>
 
 <section id="whitespace" class="doc">
-  <h2>Whitespace Control</h2>
+  <h2>空白符控制</h2>
 
-  <p>Any whitespace in your templates is left in your final output templates. However, you can control the whitespace around logic tags by using whitespace controls.</p>
+  <p>模板中的任何空白符都会留在最终输出的模板中。但是，可以在逻辑标签周围使用空白符控制来控制空白符。</p>
 
-  <p>To remove whitespace, simply put a dash (<code data-language="swig">-</code>) at the beginning or end of your tag to remove the preceding or following whitespace, respectively.</p>
+  <p>要移除掉空白符，只要在标签的开始或结束为止添加一个-(<code data-language="swig">-</code>)即可分别移除前后的空白符。</p>
 
   <pre><code data-language="swig">// seq = [1, 2, 3, 4, 5]
 {% for item in seq -%}{{ item }}
 {%- endfor %}</code>
 // => <samp>12345</samp></pre>
 
-  <p><em>Note: there must <strong>not</strong> be any space between the tag open/close mark and the dash.</em></p>
+  <p><em>注意：在开/闭标签和-之前<strong>一定不能有</strong>任何的空格。</em></p>
 
 </section>
 
 <section id="inheritance" class="doc">
-  <h2>Template Inheritance</h2>
+  <h2>模板继承</h2>
 
-  <p>Swig uses <code data-language="swig">extends</code> &amp; <code data-language="swig">block</code> for template inheritance.</p>
+  <p>Swig使用<code data-language="swig">extends</code> &amp; <code data-language="swig">block</code> 来实现模板继承。</p>
 
   <h3>layout.html</h3>
   <pre><code data-language="swig">&lt;!doctype html&gt;
@@ -213,9 +213,9 @@ It will be fully stripped and ignored during parsing.
 </section>
 
 <section id="express" class="doc">
-  <h2>Using Swig with Express.js</h2>
+  <h2>在Express.js中使用Swig</h2>
 
-  <p>Swig is easily compatible with <a href="http://expressjs.com/">Express</a>, the simple web application framework for node. The following is a basic example of integrating Swig with Express:</p>
+  <p>Swig兼容<a href="http://expressjs.com/">Express</a>，<a href="http://expressjs.com/">Express</a>是一个简单的node web应用框架。下面是一个在Express中使用Swig的例子：</p>
 
   <pre><code data-language="js">var app = require('express')(),
   swig = require('swig'),
@@ -252,15 +252,15 @@ console.log('Application Started on http://localhost:1337/');
 <nav>
   <ol class="sidenav">
     <li>
-      <a href="index.html">Getting Started</a>
+      <a href="index.html">开始</a>
       
 <ol>
-  <li><a href="#install">Installation</a></li>
-  <li><a href="#variables">Variables</a></li>
-  <li><a href="#tags">Logic Tags</a></li>
-  <li><a href="#comments">Comments</a></li>
-  <li><a href="#whitespace">Whitespace Control</a></li>
-  <li><a href="#inheritance">Template Inheritance</a></li>
+  <li><a href="#install">安装</a></li>
+  <li><a href="#variables">变量</a></li>
+  <li><a href="#tags">逻辑标签</a></li>
+  <li><a href="#comments">注释</a></li>
+  <li><a href="#whitespace">空表符控制</a></li>
+  <li><a href="#inheritance">模板继承</a></li>
   <li><a href="#express">Express.js</a></li>
 </ol>
 
@@ -270,30 +270,30 @@ console.log('Application Started on http://localhost:1337/');
       
     </li>
     <li>
-      <a href="filters/index.html">Filters</a>
+      <a href="filters/index.html">过滤器</a>
       
     </li>
     <li>
-      <a href="tags/index.html">Tags</a>
+      <a href="tags/index.html">标签</a>
       
     </li>
     <li>
-      <a href="loaders/index.html">Template Loaders</a>
+      <a href="loaders/index.html">模板加载器</a>
       
     </li>
     <li>
-      <a href="cli/index.html">Command-Line</a>
+      <a href="cli/index.html">命令行</a>
       
     </li>
     <li>
-      <a href="browser/index.html">Browser Usage</a>
+      <a href="browser/index.html">在浏览器中的使用</a>
       
     </li>
     <li>
-      <a href="extending/index.html">Extending Swig</a>
+      <a href="extending/index.html">扩展Swig</a>
       
     </li>
-    <li><a href="previous/index.html">Older Versions</a></li>
+    <li><a href="previous/index.html">旧版本</a></li>
   </ol>
 </nav>
 </div>
