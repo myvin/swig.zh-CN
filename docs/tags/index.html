@@ -69,7 +69,7 @@
 
     
 
-  <p>控制变量输出的自动转义。</p>
+  <p>控制模板内的变量输出的自动转义。</p>
 
 
 
@@ -287,7 +287,7 @@
 
     
 
-  <p>将当前模板扩展为一个父级模板。该标签必须是模板的第一项。</p><p></p><p>查看 <a href="#inheritance">模板继承</a> 获取更多信息。</p>
+  <p>将当前模板扩展为一个父级模板。该标签必须在模板的最前面。</p><p></p><p>查看 <a href="#inheritance">模板继承</a> 获取更多信息。</p>
 
 
 
@@ -344,7 +344,7 @@
 
     
 
-  <p>为整个块应用过滤器。</p>
+  <p>为模板的一个完整的块应用过滤器。</p>
 
 
 
@@ -559,7 +559,7 @@
 
     
 
-  <p>创建条件表达式。兼容大部分JavaScript的合法比较条件。</p><p></p><p>可以结合 <a href="#elseif"><code data-language="swig">{% elseif ... %}</code></a> 标签和 <a href="#else"><code data-language="swig">{% else %}</code></a> 标签一起使用。</p>
+  <p>用于创建条件表达式。兼容大部分JavaScript的合法比较。</p><p></p><p>可以结合 <a href="#elseif"><code data-language="swig">{% elseif ... %}</code></a> 标签和 <a href="#else"><code data-language="swig">{% else %}</code></a> 标签一起使用。</p>
 
 
 
@@ -640,7 +640,7 @@
 
     
 
-  <p>允许从其他文件将宏指令直接导入得到当前环境。</p><p>The import tag is specifically designed for importing macros into your template with a specific context scope. This is very useful for keeping your macros from overriding template context that is being injected by your server-side page generation.</p>
+  <p>允许从其他文件将宏指令直接导入到当前环境。</p><p>The import tag is specifically designed for importing macros into your template with a specific context scope. This is very useful for keeping your macros from overriding template context that is being injected by your server-side page generation.</p>
 
 
 
@@ -918,7 +918,7 @@
 
     
 
-  <p>在模板中创建特定的、可重用的代码片段。</p><p>可以使用<a href="#import"><code data-language="swig">{% import ... %}</code></a> 标签从一个模板导入到另一个模板。</p>
+  <p>在模板中创建特定的、可重用的代码片段。</p><p>可以使用<a href="#import"><code data-language="swig">{% import ... %}</code></a> 标签将代码段从一个模板导入到另一个模板。</p>
 
 
 
@@ -1039,7 +1039,7 @@
 
     
 
-  <p>强制内容不进行自动转义。所有的swig指令豆浆会被忽略，内容会原样渲染。</p>
+  <p>强制内容不进行自动转义。所有的swig指令都将会被忽略，内容会按照原样渲染。</p>
 
 
 
@@ -1169,7 +1169,7 @@
 
     
 
-  <p>尝试移除HTML标签之间的空白符。请自行考虑使用风险。</p>
+  <p>尝试移除HTML标签之间的空白符。请自行承担使用风险。</p>
 
 
 
