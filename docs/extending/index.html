@@ -11,7 +11,7 @@
   <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <![endif]-->
-  <title>Swig » Documentation &raquo; Extending Swig</title>
+  <title>Swig » 文档 &raquo; 扩展Swig</title>
   
 
   
@@ -32,13 +32,13 @@
   <div class="content row">
     <hgroup class="span7">
       <h1><a href="../../index.html">Swig</a></h1>
-      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
     </hgroup>
     
     <nav class="span5">
       <ul class="mainNav">
-        <li><a href="../index.html">Documentation</a></li>
-        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
+        <li><a href="../index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
       </ul>
     </nav>
   
@@ -51,21 +51,21 @@
   <div class="span9">
   
 
-<h1 id="extending">Extending Swig</h1>
+<h1 id="extending">扩展Swig</h1>
 
 <section id="filters">
-  <h2>Custom Filters</h2>
+  <h2>定制过滤器</h2>
 
   
   
   <section class="doc">
     
 
-  <p>Filters are simply functions that perform transformations on their first input argument.</p><p>Filters are run at render time, so they may not directly modify the compiled template structure in any way.</p><p>All of Swig's built-in filters are written in this same way. For more examples, reference the `filters.js` file in Swig's source.</p><p></p><p>To disable auto-escaping on a custom filter, simply add a property to the filter method `safe = true;` and the output from this will not be escaped, no matter what the global settings are for Swig.</p>
+  <p>过滤器能对输入参数执行转换。</p><p>过滤器是在渲染时间执行的，所以不管怎么样塔门都不会直接修改编译后的模板结构。</p><p>Swig所有的内置过滤器都是以同样的方式编写的。查看更多的栗子，请在Swig源码中参考 `filters.js` 文件。</p><p></p><p>如需禁止定制过滤器的自动转义，给过滤器方法增加 `safe = true;` 属性即可，这样无论Swig的全局设置是什么，输出都不会被转义。</p>
 
 
 
-    <h4>Arguments</h4>
+    <h4>参数</h4>
     <table>
       <thead>
         <tr>
@@ -404,11 +404,11 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
 <hr>
 
 <section id="tags">
-  <h2>Custom Tags</h2>
+  <h2>定制标签</h2>
 
-  <p>Swig can be extended to handle custom tags that will perform operations on full blocks of your templates. Use <a href="../api/index.html#setTag"><code data-language="js">swig.setTag(name, parse, compile, ends, blockLevel)</code></a> to add your custom tag.</p>
+  <p>你可以扩展Swig去处理定制标签，这些标签会对模板中的所有块执行相关操作。使用 <a href="../api/index.html#setTag"><code data-language="js">swig.setTag(name, parse, compile, ends, blockLevel)</code></a> 来添加你的定制标签。</p>
 
-  <p>All of Swig's tags are written using the same api (with a few exceptions for core modules, like <var>extends</var> and <var>block</var>). View a tag's source to see more examples to write your own custom tags.</p>
+  <p>Swig所有的标签都是使用相同的api（比如 <var>extends</var> 和 <var>block</var>)来编写的。阅读标签源码查看更多事例来编写自己的定制标签。</p>
 
   
   
@@ -417,11 +417,11 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
 
     <p>
 
-  <p>Define custom parsing methods for your tag.</p>
+  <p>为你的标签定义定制的解析方法。</p>
 
 </p>
 
-    <h4>Arguments</h4>
+    <h4>方法</h4>
     <table>
       <thead>
         <tr>
@@ -539,11 +539,11 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
 
     <p>
 
-  <p>Compile callback for VarToken and TagToken objects.</p>
+  <p>为VarToken和TagToken对象编译回调。</p>
 
 </p>
 
-    <h4>Arguments</h4>
+    <h4>参数</h4>
     <table>
       <thead>
         <tr>
@@ -644,7 +644,7 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
   <section id="ends" class="doc">
     <h3>ends</h3>
 
-    <p>Controls whether or not a tag must have an <code data-language="swig">{% end[tagName] %}</code> declared after usage in templates.</p>
+    <p>当一个标签在模板中被声明后，控制该标签时候是否必须有一个<code data-language="swig">{% end[tagName] %}</code> 。</p>
 
     <pre><code data-language="js">exports.ends = true;
 // => A template that fails to close this tag will throw an Error.</code></pre>
@@ -656,7 +656,7 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
    <section id="blockLevel" class="doc">
      <h3>blockLevel</h3>
 
-     <p>Allow the tag to be written outside of <code data-language="swig">{% block &lt;name&gt; %}{% endblock %}</code> tags when extending a parent template.</p>
+     <p>当扩展一个父级模板时，允许标签在 <code data-language="swig">{% block &lt;name&gt; %}{% endblock %}</code> 标签外部被重写。</p>
 
      <pre><code data-language="js">exports.blockLevel = true;</code></pre>
      <pre><code data-language="swig">{% extends "foo" %}
@@ -1000,7 +1000,7 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
 
       
 
-  <p>Enum for token types.</p>
+  <p>枚举token types.</p>
 
 
       <table>
@@ -1529,7 +1529,7 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
 <nav>
   <ol class="sidenav">
     <li>
-      <a href="../index.html">Getting Started</a>
+      <a href="../index.html">开始</a>
       
     </li>
     <li>
@@ -1537,32 +1537,32 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
       
     </li>
     <li>
-      <a href="../filters/index.html">Filters</a>
+      <a href="../filters/index.html">过滤器</a>
       
     </li>
     <li>
-      <a href="../tags/index.html">Tags</a>
+      <a href="../tags/index.html">标签</a>
       
     </li>
     <li>
-      <a href="../loaders/index.html">Template Loaders</a>
+      <a href="../loaders/index.html">模板加载器</a>
       
     </li>
     <li>
-      <a href="../cli/index.html">Command-Line</a>
+      <a href="../cli/index.html">命令行</a>
       
     </li>
     <li>
-      <a href="../browser/index.html">Browser Usage</a>
+      <a href="../browser/index.html">浏览器用法</a>
       
     </li>
     <li>
-      <a href="index.html">Extending Swig</a>
+      <a href="index.html">扩展Swig</a>
       
 <ol>
-  <li><a href="#filters">Custom Filters</a></li>
+  <li><a href="#filters">定制过滤器</a></li>
   <li>
-    <a href="#tags">Custom Tags</a>
+    <a href="#tags">定制标签</a>
     <ol>
       <li><a href="#parse">parse</a></li>
       <li><a href="#compile">compile</a></li>
@@ -1574,7 +1574,7 @@ swig.setFilter(&#39;bazbop&#39;, bazbop);
 </ol>
 
     </li>
-    <li><a href="../previous/index.html">Older Versions</a></li>
+    <li><a href="../previous/index.html">旧版本</a></li>
   </ol>
 </nav>
 </div>
