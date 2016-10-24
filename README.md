@@ -1,5 +1,5 @@
 # swig.zh-CN
-swig.zh-CN 主要是针对在学习和使用swig的过程中， 对该英文网站（swig现在没有官方网站）： http://node-swig.github.io/swig-templates/英文文档根据自己理解制作的中文翻译文档手册:swig中文手册
+swig.zh-CN 主要是针对在学习和使用swig的过程中， 对该英文网站（swig现在没有官方网站）： http://node-swig.github.io/swig-templates/ 英文文档根据自己理解制作的中文翻译文档手册:swig中文手册
 关于swig开源项目，请访问swig的[GitHub主页](https://github.com/paularmstrong/swig)
 
 声明
