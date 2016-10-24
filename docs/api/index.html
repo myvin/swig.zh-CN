@@ -11,7 +11,7 @@
   <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <![endif]-->
-  <title>Swig » Documentation &raquo; API</title>
+  <title>Swig » 文档 &raquo; API</title>
   
 
   
@@ -32,13 +32,13 @@
   <div class="content row">
     <hgroup class="span7">
       <h1><a href="../../index.html">Swig</a></h1>
-      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
     </hgroup>
     
     <nav class="span5">
       <ul class="mainNav">
-        <li><a href="../index.html">Documentation</a></li>
-        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
+        <li><a href="../index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
       </ul>
     </nav>
   
@@ -62,7 +62,7 @@
 
     
 
-  <p>Swig Options Object. This object can be passed to many of the API-level Swig methods to control various aspects of the engine. All keys are optional.</p>
+  <p>Swig Options Object.该对象可以传递给大多数API级别（API-level）的swig方法，从而控制引擎的变量部分。所有的key值都是可选项。</p>
 
 
 
@@ -137,14 +137,14 @@
 
     
 
-  <p>Cache control for templates. Defaults to saving all templates into memory.</p>
+  <p>模板缓存控制。默认将所有的模板都存入内存。</p>
 
 
 
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">// Default
 swig.setDefaults({ cache: &#39;memory&#39; });</code></pre>
@@ -173,14 +173,14 @@ swig.setDefaults({
 
     
 
-  <p>Configure Swig to use either the <var>swig.loaders.fs</var> or <var>swig.loaders.memory</var> template loader. Or, you can write your own!</p><p>For more information, please see the <a href="../loaders/index.html">Template Loaders documentation</a>.</p>
+  <p>设置Swig使用<var>swig.loaders.fs</var>还是<var>swig.loaders.memory</var>模板加载器。或者，也可以使用自己编写的加载器！</p><p>更多信息，请查看<a href="../loaders/index.html">模板加载器文档</a>。</p>
 
 
 
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">// Default, FileSystem loader
 swig.setDefaults({ loader: swig.loaders.fs() });</code></pre>
@@ -502,12 +502,12 @@ swig.setDefaults({ loader: swig.loaders.memory({
 
     
 
-  <p>Swig version number as a string.</p>
+  <p>Swig版本号，字符串类型</p>
 
 
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">if (swig.version === &quot;1.4.2&quot;) { ... }</code></pre>
     
@@ -833,12 +833,12 @@ swig.setDefaults({ loader: swig.loaders.memory({
 
     
 
-  <p>Set defaults for the base and all new Swig environments.</p>
+  <p>设置基本的默认项和Swig环境。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -864,14 +864,14 @@ swig.setDefaults({ loader: swig.loaders.memory({
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">undefined</samp>: </p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">swig.setDefaults({ cache: false });
 // =&gt; Disables Cache</code></pre>
@@ -901,12 +901,12 @@ swig.setDefaults({ loader: swig.loaders.memory({
 
     
 
-  <p>Set the default TimeZone offset for date formatting via the date filter. This is a global setting and will affect all Swig environments, old or new.</p>
+  <p>为格式化日期设置默认的时区，可以通过日期过滤器来格式化日期。这是一个全局设置，无论对于旧版本还是新版本Swig，都会影响到整个Swig环境。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -932,7 +932,7 @@ swig.setDefaults({ loader: swig.loaders.memory({
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">undefined</samp>: </p>
     
@@ -958,12 +958,12 @@ swig.setDefaults({ loader: swig.loaders.memory({
 
     
 
-  <p>Create a new, separate Swig compile/render environment.</p>
+  <p>创建一个新的、独立的Swig编译/渲染环境。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -989,14 +989,14 @@ swig.setDefaults({ loader: swig.loaders.memory({
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">object</samp>: New Swig environment.</p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">var swig = require(&#39;swig&#39;);
 var myswig = new swig.Swig({varControls: [&#39;&lt;%=&#39;, &#39;%&gt;&#39;]});
@@ -1046,21 +1046,21 @@ swig.render(&#39;Tacos are &lt;%= tacos =&gt;!&#39;, { locals: { tacos: &#39;del
 
     
 
-  <p>Clears the in-memory template cache.</p>
+  <p>清除内存中的模板缓存。</p>
 
 
 
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">undefined</samp>: </p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">swig.invalidateCache();</code></pre>
     
@@ -1085,12 +1085,12 @@ swig.render(&#39;Tacos are &lt;%= tacos =&gt;!&#39;, { locals: { tacos: &#39;del
 
     
 
-  <p>Add a custom filter for swig variables.</p>
+  <p>为swig变量添加一个定制的过滤器。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -1124,14 +1124,14 @@ swig.render(&#39;Tacos are &lt;%= tacos =&gt;!&#39;, { locals: { tacos: &#39;del
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">undefined</samp>: </p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">function replaceMs(input) { return input.replace(/m/g, &#39;f&#39;); }
 swig.setFilter(&#39;replaceMs&#39;, replaceMs);
@@ -1162,12 +1162,12 @@ swig.setFilter(&#39;replaceMs&#39;, replaceMs);
 
     
 
-  <p>Add a custom tag. To expose your own extensions to compiled template code, see <code data-language="js">swig.setExtension</code>.</p><p></p><p>For a more in-depth explanation of writing custom tags, see <a href="../extending/index.html#tags">Custom Tags</a>.</p>
+  <p>增加一个定制的tag。想要使用自己的扩展来编译模板代码，请参看<code data-language="js">swig.setExtension</code>。</p><p></p><p>获取更详细的编写定制tag的方法，请查看<a href="../extending/index.html#tags">Custom Tags</a>。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -1225,14 +1225,14 @@ swig.setFilter(&#39;replaceMs&#39;, replaceMs);
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">undefined</samp>: </p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">var tacotag = require(&#39;./tacotag&#39;);
 swig.setTag(&#39;tacos&#39;, tacotag.parse, tacotag.compile, tacotag.ends, tacotag.blockLevel);
@@ -1268,12 +1268,12 @@ swig.setTag(&#39;tacos&#39;, tacotag.parse, tacotag.compile, tacotag.ends, tacot
 
     
 
-  <p>Add extensions for custom tags. This allows any custom tag to access a globally available methods via a special globally available object, <var>_ext</var>, in templates.</p>
+  <p>为定制标签增加扩展。在模板中允许任何定制标签通过特殊的全局变量对象<var>_ext</var>来获取全局变量方法。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -1307,14 +1307,14 @@ swig.setTag(&#39;tacos&#39;, tacotag.parse, tacotag.compile, tacotag.ends, tacot
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">undefined</samp>: </p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">swig.setExtension(&#39;trans&#39;, function (v) { return translate(v); });
 function compileTrans(compiler, args, content, parent, options) {
@@ -1413,12 +1413,12 @@ swig.setTag(&#39;trans&#39;, parseTrans, compileTrans, true);</code></pre>
 
     
 
-  <p>Pre-compile a source string into a cache-able template function.</p>
+  <p>将一个source string预编译为一个可缓存的模板函数。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -1452,14 +1452,14 @@ swig.setTag(&#39;trans&#39;, parseTrans, compileTrans, true);</code></pre>
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">object</samp>: Renderable function and tokens object.</p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">swig.precompile(&#39;{{ tacos }}&#39;);
 // =&gt; {
@@ -1507,12 +1507,12 @@ In order to render a pre-compiled template, you must have access to filters and 
 
     
 
-  <p>Compile and render a template string for final output.</p><p></p><p>When rendering a source string, a file path should be specified in the options object in order for <var>extends</var>, <var>include</var>, and <var>import</var> to work properly. Do this by adding <code data-language="js">{ filename: '/absolute/path/to/mytpl.html' }</code> to the options argument.</p>
+  <p>为最后的输出编译、渲染模板字符串。</p><p></p><p>当渲染一个source string时，需要在设置选项中指定一个文件路径，这样才能使<var>extends</var>, <var>include</var>, 和 <var>import</var> 正常运行。通过在options参数中增加<code data-language="js">{ filename: '/absolute/path/to/mytpl.html' }</code>来实现。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -1546,14 +1546,14 @@ In order to render a pre-compiled template, you must have access to filters and 
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">string</samp>: Rendered output.</p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">swig.render(&#39;{{ tacos }}&#39;, { locals: { tacos: &#39;Tacos!!!!&#39; }});
 // =&gt; Tacos!!!!</code></pre>
@@ -1578,12 +1578,12 @@ In order to render a pre-compiled template, you must have access to filters and 
 
     
 
-  <p>Compile and render a template file for final output. This is most useful for libraries like Express.js.</p>
+  <p>为最后的输出编译、渲染模板文件，对于像Express.js这样的库来说很有用。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -1625,14 +1625,14 @@ In order to render a pre-compiled template, you must have access to filters and 
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">string</samp>: Rendered output.</p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">swig.renderFile(&#39;./template.html&#39;, {}, function (err, output) {
   if (err) {
@@ -1667,12 +1667,12 @@ In order to render a pre-compiled template, you must have access to filters and 
 
     
 
-  <p>Compile string source into a renderable template function.</p>
+  <p>将string source编译成一个可渲染的模板函数。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -1706,14 +1706,14 @@ In order to render a pre-compiled template, you must have access to filters and 
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">function</samp>: Renderable function with keys for parent, blocks, and tokens.</p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">var tpl = swig.compile(&#39;{{ tacos }}&#39;);
 // =&gt; {
@@ -1775,12 +1775,12 @@ When compiling a source string, a file path should be specified in the options o
 
     
 
-  <p>Compile a source file into a renderable template function.</p>
+  <p>将一个source file编译成一个可渲染的模板函数。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -1822,14 +1822,14 @@ When compiling a source string, a file path should be specified in the options o
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">function</samp>: Renderable function with keys for parent, blocks, and tokens.</p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">var tpl = swig.compileFile(&#39;./mytpl.html&#39;);
 // =&gt; {
@@ -1884,12 +1884,12 @@ tpl({ tacos: &#39;Tacos!!!!&#39; });
 
     
 
-  <p>Run a pre-compiled template function. This is most useful in the browser when you've pre-compiled your templates with the Swig command-line tool.</p>
+  <p>运行一个预编译的模板函数。在浏览器中，当你已经通过Swig命令行工具预编译了你的模板时最有用。</p>
 
 
 
     
-    <h3>Parameters</h3>
+    <h3>参数</h3>
     <table>
       <thead>
         <tr>
@@ -1931,14 +1931,14 @@ tpl({ tacos: &#39;Tacos!!!!&#39; });
     
 
     
-    <h3>Returns</h3>
+    <h3>返回</h3>
     
     <p><samp data-language="js">string</samp>: Rendered output.</p>
     
     
 
     
-    <h3>Examples</h3>
+    <h3>例子</h3>
     
     <pre><code data-language="js">$ swig compile ./mytpl.html --wrap-start=&quot;var mytpl = &quot; &gt; mytpl.js</code></pre>
     
@@ -1992,7 +1992,7 @@ tpl({ tacos: &#39;Tacos!!!!&#39; });
 <nav>
   <ol class="sidenav">
     <li>
-      <a href="../index.html">Getting Started</a>
+      <a href="../index.html">开始</a>
       
     </li>
     <li>
@@ -2318,30 +2318,30 @@ tpl({ tacos: &#39;Tacos!!!!&#39; });
 
     </li>
     <li>
-      <a href="../filters/index.html">Filters</a>
+      <a href="../filters/index.html">过滤器</a>
       
     </li>
     <li>
-      <a href="../tags/index.html">Tags</a>
+      <a href="../tags/index.html">标签</a>
       
     </li>
     <li>
-      <a href="../loaders/index.html">Template Loaders</a>
+      <a href="../loaders/index.html">模板加载器</a>
       
     </li>
     <li>
-      <a href="../cli/index.html">Command-Line</a>
+      <a href="../cli/index.html">命令行</a>
       
     </li>
     <li>
-      <a href="../browser/index.html">Browser Usage</a>
+      <a href="../browser/index.html">浏览器用法</a>
       
     </li>
     <li>
-      <a href="../extending/index.html">Extending Swig</a>
+      <a href="../extending/index.html">扩展Swig</a>
       
     </li>
-    <li><a href="../previous/index.html">Older Versions</a></li>
+    <li><a href="../previous/index.html">旧版本</a></li>
   </ol>
 </nav>
 </div>
