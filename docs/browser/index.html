@@ -11,7 +11,7 @@
   <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <![endif]-->
-  <title>Swig » Documentation &raquo; Browser Usage</title>
+  <title>Swig » 文档 &raquo; 浏览器用法</title>
   
 
   
@@ -32,13 +32,13 @@
   <div class="content row">
     <hgroup class="span7">
       <h1><a href="../../index.html">Swig</a></h1>
-      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
     </hgroup>
     
     <nav class="span5">
       <ul class="mainNav">
-        <li><a href="../index.html">Documentation</a></li>
-        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
+        <li><a href="../index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
       </ul>
     </nav>
   
@@ -50,31 +50,31 @@
 <div class="content row guttered">
   <div class="span9">
   
-<h1>Swig in the Browser</h1>
+<h1>在浏览器中使用Swig</h1>
 
-<p>Most of Swig works in the browser in the same way that Swig works within node.js. The only exception to this is that Swig is unable to look up files by their path name, unless you directly tell Swig what each template's path name is before hand.</p>
+<p>Swig在浏览器中的运行方式和在node.js中的运行方式大体相同。唯一的不同在于：Swig不能通过路径名字来查找文件，除非你直接提前告诉Swig每一个模板路径的名字是什么。</p>
 
-<p>In short, Swig cannot resolve the directive <code data-language="swig">{% extends "./myfile.html" %}</code> and <code data-language="swig">{% include "./myfile.html" %}</code> without first having already been told about <var>./myfile.html</var>.</p>
+<p>简单的说，如果没有提前被告知<var>./myfile.html</var>，则Swig无法确定指令<code data-language="swig">{% extends "./myfile.html" %}</code> 和 <code data-language="swig">{% include "./myfile.html" %}</code>中的文件。</p>
 
-<p>The best way to work around this is to first pre-compile your templates using the Swig <a href="../cli/index.html">command-line interface</a>.</p>
+<p>关于这点最好的方式就是使用 <a href="../cli/index.html">命令行接口</a> 预编译你的模板。</p>
 
 <ol>
   <li>
-    <p>Compile each template into JavaScript files. Assign a method name to the output that will be globally available in your browser.</p>
+    <p>将每个模板编译成JavaScript文件，并给输出分配一个方法名，这样就可以在浏览器中全局访问该变量。</p>
     <pre><code data-language="sh">$ swig compile myfile.html --method-name=myfile > myfile.js</code></pre>
   </li>
   <li>
-    <p>Include Swig and your <samp>myfile.js</samp> in your web page.</p>
+    <p>将Swig和 <samp>myfile.js</samp> 引入浏览器。</p>
     <pre><code data-language="html">&lt;script src="swig.min.js"&gt;&lt;/script&gt;
 &lt;script src="myfile.js"&gt;&lt;/script&gt;
 </code></pre>
   </li>
   <li>
-    <p>Pre-run the template to prime Swig's cache.</p>
+    <p>预运行模板，为Swig缓存做好准备工作。</p>
     <pre><code data-language="js">swig.run(myfile, {}, '/myfile.html');</code></pre>
   </li>
   <li>
-    <p>Now, you are ready to render a template in-browser that can extend <samp>myfile.html</samp></p>
+    <p>现在，你就可以在浏览器中渲染模板了，并可以导出 <samp>myfile.html</samp></p>
     <pre><code data-language="js">var tpl = '{% extends "./myfile.html" %}{% block content %}{{ stuff }}{% endblock %}';
 var output = swig.render(tpl, { filename: '/tpl', locals: { stuff: 'awesome' }});
 document.querySelector('#foo').innerHTML = output;</code></pre>
@@ -87,7 +87,7 @@ document.querySelector('#foo').innerHTML = output;</code></pre>
 <nav>
   <ol class="sidenav">
     <li>
-      <a href="../index.html">Getting Started</a>
+      <a href="../index.html">开始</a>
       
     </li>
     <li>
@@ -95,30 +95,30 @@ document.querySelector('#foo').innerHTML = output;</code></pre>
       
     </li>
     <li>
-      <a href="../filters/index.html">Filters</a>
+      <a href="../filters/index.html">过滤器</a>
       
     </li>
     <li>
-      <a href="../tags/index.html">Tags</a>
+      <a href="../tags/index.html">标签</a>
       
     </li>
     <li>
-      <a href="../loaders/index.html">Template Loaders</a>
+      <a href="../loaders/index.html">模板加载器</a>
       
     </li>
     <li>
-      <a href="../cli/index.html">Command-Line</a>
+      <a href="../cli/index.html">命令行</a>
       
     </li>
     <li>
-      <a href="index.html">Browser Usage</a>
+      <a href="index.html">浏览器用法</a>
       
     </li>
     <li>
-      <a href="../extending/index.html">Extending Swig</a>
+      <a href="../extending/index.html">扩展Swig</a>
       
     </li>
-    <li><a href="../previous/index.html">Older Versions</a></li>
+    <li><a href="../previous/index.html">旧版本</a></li>
   </ol>
 </nav>
 </div>
