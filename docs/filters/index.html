@@ -56,7 +56,7 @@
 
 <p>变量的渲染可以通过过滤器来修改。过滤器是一种特殊的函数，它们使用管道语法可以应用到变量块中的任何对象后面。举个栗子： <code data-language>{{ names|join(', ') }}</code>.</p>
 
-<p>过滤器也可以一个接一个地链式使用。举个栗子：我们有一系列html标签，我们想要移除、拼接、首字母大写：</p>
+<p>过滤器也可以一个接一个地链式调用。举个栗子：我们有一系列html标签，想要移除、拼接、大写首字母：</p>
 
 <pre><code data-language="swig">// names = ['<p>paul</p>', '<p>jim</p>'];
 {{ names|striptags|join(', ')|title }}
@@ -90,7 +90,7 @@
 
     
 
-  <p>反斜杠转义字符需要转义。</p>
+  <p>需要被转义的反斜杠转义字符。</p>
 
 
 
@@ -136,7 +136,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: Returns the same type as the input.</p>
+    <p><samp data-language="js">*</samp>: 返回的类型和输入类型相同</p>
     
     
 
@@ -164,7 +164,7 @@
 
     
 
-  <p>格式化日期或日期兼容的字符串。</p>
+  <p>格式化日期或格式化日期兼容的字符串。</p>
 
 
 
@@ -221,7 +221,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">string</samp>: Formatted date string.</p>
+    <p><samp data-language="js">string</samp>: 格式化的日期字符串。</p>
     
     
 
@@ -264,7 +264,7 @@
 
     
 
-  <p>如果输入时`undefined`, `null`,或者`false`，需要指定一个默认的返回值。</p>
+  <p>如果输入是`undefined`、`null`或者`false`，需要指定一个默认的返回值。</p>
 
 
 
@@ -301,7 +301,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: `input` or `def` value.</p>
+    <p><samp data-language="js">*</samp>: `input` 或 `def` 值。</p>
     
     
 
@@ -330,7 +330,7 @@
 
     
 
-  <p>强制转义变量输出。Optionally use `e` as a shortcut filter name.如果自动转移选项打开，该过滤器会默认应用。</p>
+  <p>强制转义变量输出。作为可选项，可以使用 `e` 来作为`escape`的简短别名。如果打开自动转义选项，就会默认应用该过滤器。</p>
 
 
 
@@ -367,7 +367,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">string</samp>: Escaped string.</p>
+    <p><samp data-language="js">string</samp>: 转义后的字符串。</p>
     
     
 
@@ -416,7 +416,7 @@
 
     
 
-  <p>获取一个数组的第一项或一个字符串的首字母。剩下的其他的对象会尝试返回第一个值变量。</p>
+  <p>返回一个数组的第一项或一个字符串的首字母。对于剩下的其他所有对象会尝试返回第一个值变量。</p>
 
 
 
@@ -458,7 +458,7 @@
 
     
 
-  <p>Group an array of objects by a common key. If an array is not provided, the input value will be returned untouched.</p>
+  <p>按照给定的key值对对象数组进行分组。如果没有提供数组，则会原样返回输入值。</p>
 
 
 
@@ -495,7 +495,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">object</samp>: Grouped arrays by given key.</p>
+    <p><samp data-language="js">object</samp>: 按照给定值分组后的数组。</p>
     
     
 
@@ -536,7 +536,7 @@
 
     
 
-  <p>将输入用一个字符串拼接起来</p>
+  <p>拼接输入值和字符串。</p>
 
 
 
@@ -606,7 +606,7 @@
 
     
 
-  <p>返回一个JSON</p><p></p><p>向后兼容swig@0.x.x需要使用`json_encode`。</p>
+  <p>返回一个JSON</p><p></p><p>向后兼容swig@0.x.x则需要使用`json_encode`。</p>
 
 
 
@@ -643,7 +643,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">string</samp>: A valid JSON string.</p>
+    <p><samp data-language="js">string</samp>: 一个有效的JSON字符串。</p>
     
     
 
@@ -678,7 +678,7 @@
 
     
 
-  <p>获取一个数组的最后一项或一个字符串的最后一个字符。剩下的所有其他对象会尝试返回最后一个值变量。</p>
+  <p>返回一个数组的最后一项或一个字符串的最后一个字符。剩下的其他所有对象会尝试返回最后一个值变量。</p>
 
 
 
@@ -687,7 +687,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: The last item of the array or last character of the string.input.</p>
+    <p><samp data-language="js">*</samp>: 数组的最后一项或字符串输入的最后一个字符。</p>
     
     
 
@@ -720,7 +720,7 @@
 
     
 
-  <p>获取数组长度、字符串长度或对象长度（items数）</p>
+  <p>返回数组长度、字符串长度或对象长度（item数）。</p>
 
 
 
@@ -729,7 +729,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: The length of the input</p>
+    <p><samp data-language="js">*</samp>: 输入值的长度</p>
     
     
 
@@ -775,7 +775,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: Returns the same type as the input.</p>
+    <p><samp data-language="js">*</samp>: 返回和数组类型相同的类型。</p>
     
     
 
@@ -833,7 +833,7 @@
 
     
 
-  <p>正则匹配并替换，使用的是JavaScript内建String.replace()方法。</p>
+  <p>正则匹配并替换，使用的是JavaScript内置的String.replace()方法。</p>
 
 
 
@@ -890,7 +890,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">string</samp>: Replaced string.</p>
+    <p><samp data-language="js">string</samp>: 替换后的字符串。</p>
     
     
 
@@ -927,7 +927,7 @@
 
     
 
-  <p>将输入倒序返回。是<code data-language="swig">{{ input|sort(true) }}</code>的一个别名。</p>
+  <p>将输入倒序返回。这是<code data-language="swig">{{ input|sort(true) }}</code>的一个别名。</p>
 
 
 
@@ -936,7 +936,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">array</samp>: Reversed array. The original input object is returned if it was not an array.</p>
+    <p><samp data-language="js">array</samp>: 倒序后的数组。如果输入不是数组则返回原始输入。</p>
     
     
 
@@ -963,7 +963,7 @@
 
     
 
-  <p>强制输入不自动转义，只有在你确信在你的页面上渲染的那些内容是安全的情况下再使用它。</p>
+  <p>强制输入不自动转义。只有在你确信在你的页面上渲染的那些内容是安全的情况下再使用它。</p>
 
 
 
@@ -972,7 +972,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: The input exactly how it was given, regardless of autoescaping status.</p>
+    <p><samp data-language="js">*</samp>: 忽略自动转义状态，输入原样返回。</p>
     
     
 
@@ -1038,7 +1038,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: Sorted array;</p>
+    <p><samp data-language="js">*</samp>: 排序后的数组。</p>
     
     
 
@@ -1094,7 +1094,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: Returns the same object as the input, but with all string values stripped of tags.</p>
+    <p><samp data-language="js">*</samp>: 返回和输入相同的对象，字符串值的标签会被去除。</p>
     
     
 
@@ -1132,7 +1132,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: Returns the same object as the input, but with all words in strings title-cased.</p>
+    <p><samp data-language="js">*</samp>: 返回和输入相同的对象，会大写所有的单词首字母。</p>
     
     
 
@@ -1174,7 +1174,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">array</samp>: Array with unique items. If input was not an array, the original item is returned untouched.</p>
+    <p><samp data-language="js">array</samp>: 没有重复项的数组。如果输入不是数组，则将输入原样返回。</p>
     
     
 
@@ -1205,7 +1205,7 @@
 
     
 
-  <p>将输入的所有字母转换为大写。</p>
+  <p>将输入的所有字母转换为大写。如果给出的是一个对象或数组，将会大写所有的值（value）。</p>
 
 
 
@@ -1214,7 +1214,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: Returns the same type as the input, with all strings upper-cased.</p>
+    <p><samp data-language="js">*</samp>: 返回的类型和输入类型相同，所有字符串字母都将转换为大写。</p>
     
     
 
@@ -1256,7 +1256,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: URL-encoded string.</p>
+    <p><samp data-language="js">*</samp>: URL-encode后的字符串。</p>
     
     
 
@@ -1294,7 +1294,7 @@
     
     <h3>返回</h3>
     
-    <p><samp data-language="js">*</samp>: URL-decoded string.</p>
+    <p><samp data-language="js">*</samp>: URL-decode后的字符串。</p>
     
     
 
