@@ -32,13 +32,13 @@
   <div class="content row">
     <hgroup class="span7">
       <h1><a href="index.html">Swig</a></h1>
-      <h2>A Node.js and Browser-based JavaScript Template Engine</h2>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
     </hgroup>
     
     <nav class="span5">
       <ul class="mainNav">
-        <li><a href="docs/index.html">Documentation</a></li>
-        <li><a href="https://github.com/paularmstrong/swig/">Code</a></li>
+        <li><a href="docs/index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
       </ul>
     </nav>
   
@@ -52,8 +52,8 @@
   <h1>Swig</h1>
 
   <div class="row guttered">
-    <p class="span6">A simple, powerful, and extendable JavaScript Template Engine.</p>
-    <p class="span6">Current Version: <strong>v2.0.0</strong>. <a href="docs/previous/index.html">Looking for an older version?</a></p>
+    <p class="span6">一个简单、强大、灵活的模板引擎</p>
+    <p class="span6">当前版本: <strong>v2.0.0</strong>. <a href="docs/previous/index.html">查看之前的版本？</a></p>
   </div>
 
   <hr class="small">
@@ -61,14 +61,14 @@
   <div class="row guttered">
 
     <section class="span6">
-      <h2>Super Quick Start</h2>
+      <h2>快速开始</h2>
 
-      <p>For a more in-depth intro, check out the <a href="docs/index.html">Getting Started docs</a>.</p>
+      <p>进一步学习使用请参考<a href="docs/index.html">开始文档</a>。</p>
 
-      <h3>Install Swig</h3>
+      <h3>安装Swig</h3>
       <pre><code>npm install swig --save</code></pre>
 
-      <h3>Create Your Template</h3>
+      <h3>创建模板</h3>
       <pre><code data-language="swig">&lt;h1&gt;{{ pagename|title }}&lt;/h1&gt;
 &lt;ul&gt;
 {% for author in authors %}
@@ -78,14 +78,14 @@
 {% endfor %}
 &lt;/ul&gt;</code></pre>
 
-      <h3>Render Your Template</h3>
+      <h3>渲染模板</h3>
       <pre><code data-language="javascript">var swig  = require('swig');
 swig.renderFile('/path/to/template.html', {
     pagename: 'awesome people',
     authors: ['Paul', 'Jim', 'Jane']
 });</code></pre>
 
-      <h3>The End Result</h3>
+      <h3>渲染结果</h3>
       <pre><code data-language="html">&lt;h1&gt;Awesome People&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li class="first"&gt;Paul&lt;/li&gt;
@@ -95,39 +95,39 @@ swig.renderFile('/path/to/template.html', {
     </section>
 
     <section class="span6">
-      <h2>Features</h2>
+      <h2>特点</h2>
       <ul>
-        <li>Available for node.js <em>and</em> major web browsers!</li>
-        <li>Uses similar methodologies as Django, Jinja2, and Twig template engines.</li>
-        <li><a href="http://expressjs.com/">Express</a> compatible.</li>
-        <li>Object-Oriented template inheritance.</li>
-        <li>Apply filters and transformations to output in your templates.</li>
-        <li>Automatically escapes all output for safe HTML rendering.</li>
-        <li>Lots of iteration and conditionals supported.</li>
-        <li>Robust without the bloat.</li>
-        <li>Extendable and customizable.</li>
-        <li>Great <a href="coverage.html">code coverage</a>.</li>
+        <li>适用于node.js <em>和</em>大部分浏览器</li>
+        <li>使用和Django、Jinja2、wig模板引擎相似的方法</li>
+        <li><a href="http://expressjs.com/">Express</a> 兼容</li>
+        <li>面向对象的模板继承</li>
+        <li>医用过滤器和转换输出</li>
+        <li>自动转义输出为安全的HTML渲染</li>
+        <li>支持迭代和条件判断</li>
+        <li>健壮不臃肿</li>
+        <li>灵活可定制</li>
+        <li><a href="coverage.html">代码覆盖率</a>高</li>
       </ul>
 
       <hr class="small">
 
-      <h2>Download For the Browser</h2>
-      <p>Swig also works in all major browsers. Just download the following file and follow the <a href="docs/index.html#browser">Documentation</a>.</p>
+      <h2>下载浏览器版本</h2>
+      <p>Swig支持所有的主流浏览器，只要下载下面的文件并阅读<a href="docs/index.html#browser">相关文档</a>即可。</p>
       <p class="download">
-        <a href="js/swig.min.js" class="btn">Download v2.0.0</a><br><br>
-        <a href="js/swig.js">Development</a> | <a href="js/swig.min.js">Production</a> (<a href="js/swig.js.json">source map</a>)
+        <a href="js/swig.min.js" class="btn">下载v2.0.0版本</a><br><br>
+        <a href="js/swig.js">开发版</a> | <a href="js/swig.min.js">生产版</a> (<a href="js/swig.js.json">source map</a>)
       </p>
 
       <hr class="small">
 
-      <h2>Resources</h2>
+      <h2>资源</h2>
 
        <ul>
-         <li><a href="https://groups.google.com/forum/#!forum/swig-templates">Mailing List</a></li>
+         <li><a href="https://groups.google.com/forum/#!forum/swig-templates">邮件列表</a></li>
          <li><a href="https://travis-ci.org/paularmstrong/swig/builds">Travis CI Build History</a></li>
-         <li><a href="https://github.com/paularmstrong/swig/issues">Bug Reports</a></li>
-         <li><a href="http://stackoverflow.com/questions/tagged/swig-template">Stack Overflow Questions</a></li>
-         <li><a href="https://github.com/jonschlinkert/sublime-swig">Syntax Highlighting for Sublime Text</a></li>
+         <li><a href="https://github.com/paularmstrong/swig/issues">反馈Bug</a></li>
+         <li><a href="http://stackoverflow.com/questions/tagged/swig-template">Stack Overflow上的相关问题</a></li>
+         <li><a href="https://github.com/jonschlinkert/sublime-swig">Sublime Text语法高亮</a></li>
        </ul>
 
     </section>
