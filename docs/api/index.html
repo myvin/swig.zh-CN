@@ -64,12 +64,12 @@
 
     
 
-  <p>Swig Options Object.该对象可以传递给大多数API级别（API-level）的swig方法，从而控制引擎的变量部分。所有的key值都是可选项。</p>
+  <p>Swig Options Object.该对象可以传递给大多数API级别（API-level）的swig方法来控制引擎。所有的key值都是可选项。</p>
 
 
 
     
-    <h3>Properties</h3>
+    <h3>属性</h3>
     <table>
       <thead>
         <tr>
@@ -139,7 +139,7 @@
 
     
 
-  <p>模板缓存控制。默认将所有的模板都存入内存。</p>
+  <p>模板缓存控制。Swig默认会将所有的模板都存入内存。</p>
 
 
 
@@ -175,7 +175,7 @@ swig.setDefaults({
 
     
 
-  <p>设置Swig使用<var>swig.loaders.fs</var>还是<var>swig.loaders.memory</var>模板加载器。或者，也可以使用自己编写的加载器！</p><p>更多信息，请查看<a href="../loaders/index.html">模板加载器文档</a>。</p>
+  <p>可以使用<var>swig.loaders.fs</var>或<var>swig.loaders.memory</var>模板加载器来配置Swig，如果想使用自己编写的加载器也是可以的哦！</p><p>获取更多信息，请查看<a href="../loaders/index.html">模板加载器文档</a>。</p>
 
 
 
@@ -903,7 +903,7 @@ swig.setDefaults({ loader: swig.loaders.memory({
 
     
 
-  <p>为格式化日期设置默认的时区，可以通过日期过滤器来格式化日期。这是一个全局设置，无论对于旧版本还是新版本Swig，都会影响到整个Swig环境。</p>
+  <p>通过日期过滤器为格式化日期设置默认的时区。这是一个全局设置，无论对于新的还是旧的Swig环境，都会受到影响。</p>
 
 
 
@@ -1087,7 +1087,7 @@ swig.render(&#39;Tacos are &lt;%= tacos =&gt;!&#39;, { locals: { tacos: &#39;del
 
     
 
-  <p>为swig变量添加一个定制的过滤器。</p>
+  <p>为swig变量增加一个定制的过滤器。</p>
 
 
 
@@ -1509,7 +1509,7 @@ In order to render a pre-compiled template, you must have access to filters and 
 
     
 
-  <p>为最后的输出编译、渲染模板字符串。</p><p></p><p>当渲染一个source string时，需要在设置选项中指定一个文件路径，这样才能使<var>extends</var>, <var>include</var>, 和 <var>import</var> 正常运行。通过在options参数中增加<code data-language="js">{ filename: '/absolute/path/to/mytpl.html' }</code>来实现。</p>
+  <p>为最后的输出编译、渲染模板字符串。</p><p></p><p>当渲染一个source string时，需要在设置选项中指定一个文件路径，这样才能使<var>extends</var>、 <var>include</var> 和 <var>import</var> 正常运行。通过在options参数中增加<code data-language="js">{ filename: '/absolute/path/to/mytpl.html' }</code>来实现。</p>
 
 
 
@@ -1580,7 +1580,7 @@ In order to render a pre-compiled template, you must have access to filters and 
 
     
 
-  <p>为最后的输出编译、渲染模板文件，对于像Express.js这样的库来说很有用。</p>
+  <p>为最终的输出编译、渲染模板文件，这对于像Express.js这样的库来说非常有用。</p>
 
 
 
@@ -1886,7 +1886,7 @@ tpl({ tacos: &#39;Tacos!!!!&#39; });
 
     
 
-  <p>运行一个预编译的模板函数。在浏览器中，当你已经通过Swig命令行工具预编译了你的模板时最有用。</p>
+  <p>运行一个预编译的模板函数。在浏览器中，当你已经通过Swig命令行工具预编译了你的模板时该方法非常有用。</p>
 
 
 
