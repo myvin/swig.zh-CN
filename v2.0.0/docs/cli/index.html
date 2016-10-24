@@ -1,0 +1,168 @@
+
+  
+<!doctype html>
+<html>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/cli/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  
+  <!--[if IE]>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <![endif]-->
+  <title>Swig » 文档 &raquo; CLI</title>
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="../../css/swig.css">
+
+
+
+</head>
+<body class="">
+
+  
+
+
+<header class="header">
+  <div class="content row">
+    <hgroup class="span7">
+      <h1><a href="../../index.html">Swig</a></h1>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
+    </hgroup>
+    
+    <nav class="span5">
+      <ul class="mainNav">
+        <li><a href="../index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
+      </ul>
+    </nav>
+  
+  </div>
+</header>
+
+
+
+<div class="content row guttered">
+  <div class="span9">
+  
+<h1>命令行接口</h1>
+
+<section id="install" class="doc">
+  <h2>安装</h2>
+
+  <p>通过NPM安装：</p>
+  <pre><code data-language="sh">$ npm install swig --global</code></pre>
+</section>
+
+<section id="usage" class="doc">
+  <h2>用法</h2>
+
+  <pre><code data-language="sh">$ swig compile [file...] [options]
+$ swig render [file...] [options]
+$ swig run [file...] [options]</code></pre>
+
+  <h3>选项</h3>
+  <pre>
+-v, --version  Show the Swig version number.
+-o, --output   Output location. [default: "stdout"]
+-h, --help     Show this help screen.
+-j, --json     Variable context as a JSON file.
+-c, --context  Variable context as a CommonJS-style file. Used only if option `j` is not provided.
+-m, --minify   Minify compiled functions with uglify-js
+--filters      Custom filters as a CommonJS-style file
+--tags         Custom tags as a CommonJS-style file
+--options      Customize Swig's Options from a CommonJS-style file
+--wrap-start   Template wrapper beginning for "compile". [default: "var tpl = "]
+--wrap-end     Template wrapper end for "compile". [default: ";"]
+--method-name  Method name to set template to and run from. [default: "tpl"]</pre>
+</section>
+
+<section id="examples" class="doc">
+  <h2>例子</h2>
+
+  <p>渲染一个文件：</p>
+  <pre><code data-language="sh">$ swig render ./index.html</code></pre>
+
+  <p>编译并存储一个模板为一个可渲染的函数，并使用uglify-js压缩输出：</p>
+  <pre><code data-language="sh">$ swig compile ./index.html -m > ./cache/index.js</code></pre>
+
+  <p>运行编译已经缓存的模板：</p>
+  <pre><code data-language="sh">$ swig run ./cache/index.js</code></pre>
+
+  <p>将一个JSON文件作为变量环境导入并渲染模板：</p>
+  <pre><code data-language="sh">$ swig render ./index.html -j ./index.json</code></pre>
+
+  <p>将你的模板做为一个AMD模块：</p>
+  <pre><code data-language="sh">$ swig compile ./index.html --wrap-start="define(function () { return " --wrap-end="; });"</code></pre>
+</section>
+
+  </div>
+
+  <div class="span3">
+<nav>
+  <ol class="sidenav">
+    <li>
+      <a href="../index.html">开始</a>
+      
+    </li>
+    <li>
+      <a href="../api/index.html">Swig API</a>
+      
+    </li>
+    <li>
+      <a href="../filters/index.html">过滤器</a>
+      
+    </li>
+    <li>
+      <a href="../tags/index.html">标签</a>
+      
+    </li>
+    <li>
+      <a href="../loaders/index.html">模板加载器</a>
+      
+    </li>
+    <li>
+      <a href="index.html">命令行</a>
+      
+<ol>
+  <li><a href="#install">安装</a></li>
+  <li><a href="#usage">用法</a></li>
+  <li><a href="#examples">例子</a></li>
+</ol>
+
+    </li>
+    <li>
+      <a href="../browser/index.html">浏览器用法</a>
+      
+    </li>
+    <li>
+      <a href="../extending/index.html">扩展Swig</a>
+      
+    </li>
+    <li><a href="../previous/index.html">旧版本</a></li>
+  </ol>
+</nav>
+</div>
+</div>
+
+
+<footer class="content">
+  <hr class="small">
+  <p>Swig is copyright &copy;2016 <a href="http://paularmstrongdesigns.com/">Paul Armstrong</a>, licensed for use under the permissive MIT Open Source License.</p>
+  <a class="forkme" href="https://github.com/paularmstrong/swig">Fork me on GitHub</a>
+</footer>
+
+
+  
+<script src="../../js/lib/rainbow.min.js"></script>
+<script src="../../js/master.js"></script>
+
+</body>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/cli/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+</html>

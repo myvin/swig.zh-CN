@@ -1,0 +1,2365 @@
+
+  
+<!doctype html>
+<html>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/api/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  
+  <!--[if IE]>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <![endif]-->
+  <title>Swig » 文档 &raquo; API</title>
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="../../css/swig.css">
+
+
+
+</head>
+<body class="">
+
+  
+
+
+<header class="header">
+  <div class="content row">
+    <hgroup class="span7">
+      <h1><a href="../../index.html">Swig</a></h1>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
+    </hgroup>
+    
+    <nav class="span5">
+      <ul class="mainNav">
+        <li><a href="../index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
+      </ul>
+    </nav>
+  
+  </div>
+</header>
+
+
+
+<div class="content row guttered">
+  <div class="span9">
+  
+<h1>Swig API</h1>
+
+
+
+  <section id="SwigOpts" class="doc">
+    <h2>Object Type: SwigOpts</h2>
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L17">lib/swig.js#L17</a></p>
+
+
+    
+
+  <p>Swig Options Object.该对象可以传递给大多数API级别（API-level）的swig方法，从而控制引擎的变量部分。所有的key值都是可选项。</p>
+
+
+
+    
+    <h3>Properties</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">autoescape</var></td>
+          <td><code data-language="js">boolean</code></td>
+          <td>Controls whether or not variable output will automatically be escaped for safe HTML output. Defaults to <code data-language="js">true</code>. Functions executed in variable statements will not be auto-escaped. Your application/functions should take care of their own auto-escaping.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">varControls</var></td>
+          <td><code data-language="js">array</code></td>
+          <td>Open and close controls for variables. Defaults to <code data-language="js">['{{', '}}']</code>.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">tagControls</var></td>
+          <td><code data-language="js">array</code></td>
+          <td>Open and close controls for tags. Defaults to <code data-language="js">['{%', '%}']</code>.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">cmtControls</var></td>
+          <td><code data-language="js">array</code></td>
+          <td>Open and close controls for comments. Defaults to <code data-language="js">['{#', '#}']</code>.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">locals</var></td>
+          <td><code data-language="js">object</code></td>
+          <td>Default variable context to be passed to <strong>all</strong> templates.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">cache</var></td>
+          <td><code data-language="js">CacheOptions</code></td>
+          <td>Cache control for templates. Defaults to saving in <code data-language="js">'memory'</code>. Send <code data-language="js">false</code> to disable. Send an object with <code data-language="js">get</code> and <code data-language="js">set</code> functions to customize.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">loader</var></td>
+          <td><code data-language="js">TemplateLoader</code></td>
+          <td>The method that Swig will use to load templates. Defaults to <var>swig.loaders.fs</var>.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+  </section>
+
+
+
+  <section id="CacheOptions" class="doc">
+    <h2>Object Type: CacheOptions</h2>
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L34">lib/swig.js#L34</a></p>
+
+
+    
+
+  <p>模板缓存控制。默认将所有的模板都存入内存。</p>
+
+
+
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">// Default
+swig.setDefaults({ cache: &#39;memory&#39; });</code></pre>
+    
+    <pre><code data-language="js">// Disables caching in Swig.
+swig.setDefaults({ cache: false });</code></pre>
+    
+    <pre><code data-language="js">// Custom cache storage and retrieval
+swig.setDefaults({
+  cache: {
+    get: function (key) { ... },
+    set: function (key, val) { ... }
+  }
+});</code></pre>
+    
+    
+  </section>
+
+
+
+  <section id="TemplateLoader" class="doc">
+    <h2>Object Type: TemplateLoader</h2>
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L53">lib/swig.js#L53</a></p>
+
+
+    
+
+  <p>设置Swig使用<var>swig.loaders.fs</var>还是<var>swig.loaders.memory</var>模板加载器。或者，也可以使用自己编写的加载器！</p><p>更多信息，请查看<a href="../loaders/index.html">模板加载器文档</a>。</p>
+
+
+
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">// Default, FileSystem loader
+swig.setDefaults({ loader: swig.loaders.fs() });</code></pre>
+    
+    <pre><code data-language="js">// FileSystem loader allowing a base path
+// With this, you don&#39;t use relative URLs in your template references
+swig.setDefaults({ loader: swig.loaders.fs(__dirname + &#39;/templates&#39;) });</code></pre>
+    
+    <pre><code data-language="js">// Memory Loader
+swig.setDefaults({ loader: swig.loaders.memory({
+  layout: &#39;{% block foo %}{% endblock %}&#39;,
+  page1: &#39;{% extends &quot;layout&quot; %}{% block foo %}Tacos!{% endblock %}&#39;
+})});</code></pre>
+    
+    
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="version" class="doc">
+    <h2>swig.version</h2>
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L15">lib/swig.js#L15</a></p>
+
+
+    
+
+  <p>Swig版本号，字符串类型</p>
+
+
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">if (swig.version === &quot;1.4.2&quot;) { ... }</code></pre>
+    
+    
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <section id="setDefaults" class="doc">
+    <h2>
+      swig.setDefaults(
+      options
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L143">lib/swig.js#L143</a></p>
+
+
+    
+
+  <p>设置基本的默认项和Swig环境。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">options</var></td>
+          <td><code data-language="js">SwigOpts</code></td>
+          <td>✔</td>
+          <td><code data-language="js">{}</code></td>
+          <td>Swig options object.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">undefined</samp>: </p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">swig.setDefaults({ cache: false });
+// =&gt; Disables Cache</code></pre>
+    
+    <pre><code data-language="js">swig.setDefaults({ locals: { now: function () { return new Date(); } }});
+// =&gt; sets a globally accessible method for all template
+//    contexts, allowing you to print the current date
+// =&gt; {{ now()|date(&#39;F jS, Y&#39;) }}</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+  <section id="setDefaultTZOffset" class="doc">
+    <h2>
+      swig.setDefaultTZOffset(
+      offset
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L153">lib/swig.js#L153</a></p>
+
+
+    
+
+  <p>为格式化日期设置默认的时区，可以通过日期过滤器来格式化日期。这是一个全局设置，无论对于旧版本还是新版本Swig，都会影响到整个Swig环境。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">offset</var></td>
+          <td><code data-language="js">number</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Offset from GMT, in minutes.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">undefined</samp>: </p>
+    
+    
+
+    
+  </section>
+  
+
+  
+
+  
+  <section id="Swig" class="doc">
+    <h2>
+      swig.Swig(
+      opts
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L171">lib/swig.js#L171</a></p>
+
+
+    
+
+  <p>创建一个新的、独立的Swig编译/渲染环境。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">opts</var></td>
+          <td><code data-language="js">SwigOpts</code></td>
+          <td>✔</td>
+          <td><code data-language="js">{}</code></td>
+          <td>Swig options object.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">object</samp>: New Swig environment.</p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">var swig = require(&#39;swig&#39;);
+var myswig = new swig.Swig({varControls: [&#39;&lt;%=&#39;, &#39;%&gt;&#39;]});
+myswig.render(&#39;Tacos are &lt;%= tacos =&gt;!&#39;, { locals: { tacos: &#39;delicious&#39; }});
+// =&gt; Tacos are delicious!
+swig.render(&#39;Tacos are &lt;%= tacos =&gt;!&#39;, { locals: { tacos: &#39;delicious&#39; }});
+// =&gt; &#39;Tacos are &lt;%= tacos =&gt;!&#39;</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <section id="invalidateCache" class="doc">
+    <h2>
+      swig.invalidateCache(
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L251">lib/swig.js#L251</a></p>
+
+
+    
+
+  <p>清除内存中的模板缓存。</p>
+
+
+
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">undefined</samp>: </p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">swig.invalidateCache();</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+  <section id="setFilter" class="doc">
+    <h2>
+      swig.setFilter(
+      name
+      , method
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L270">lib/swig.js#L270</a></p>
+
+
+    
+
+  <p>为swig变量添加一个定制的过滤器。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">name</var></td>
+          <td><code data-language="js">string</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Name of filter, used in templates. <strong>Will</strong> overwrite previously defined filters, if using the same name.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">method</var></td>
+          <td><code data-language="js">function</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Function that acts against the input. See <a href="http://node-swig.github.io/docs/filters/#custom">Custom Filters</a> for more information.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">undefined</samp>: </p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">function replaceMs(input) { return input.replace(/m/g, &#39;f&#39;); }
+swig.setFilter(&#39;replaceMs&#39;, replaceMs);
+// =&gt; {{ &quot;onomatopoeia&quot;|replaceMs }}
+// =&gt; onofatopeia</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+  <section id="setTag" class="doc">
+    <h2>
+      swig.setTag(
+      name
+      , parse
+      , compile
+      , ends
+      , blockLevel
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L295">lib/swig.js#L295</a></p>
+
+
+    
+
+  <p>增加一个定制的tag。想要使用自己的扩展来编译模板代码，请参看<code data-language="js">swig.setExtension</code>。</p><p></p><p>获取更详细的编写定制tag的方法，请查看<a href="../extending/index.html#tags">Custom Tags</a>。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">name</var></td>
+          <td><code data-language="js">string</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Tag name.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">parse</var></td>
+          <td><code data-language="js">function</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Method for parsing tokens.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">compile</var></td>
+          <td><code data-language="js">function</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Method for compiling renderable output.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">ends</var></td>
+          <td><code data-language="js">boolean</code></td>
+          <td>✔</td>
+          <td><code data-language="js">false</code></td>
+          <td>Whether or not this tag requires an <i>end</i> tag.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">blockLevel</var></td>
+          <td><code data-language="js">boolean</code></td>
+          <td>✔</td>
+          <td><code data-language="js">false</code></td>
+          <td>If false, this tag will not be compiled outside of <code>block</code> tags when extending a parent template.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">undefined</samp>: </p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">var tacotag = require(&#39;./tacotag&#39;);
+swig.setTag(&#39;tacos&#39;, tacotag.parse, tacotag.compile, tacotag.ends, tacotag.blockLevel);
+// =&gt; {% tacos %}Make this be tacos.{% endtacos %}
+// =&gt; Tacos tacos tacos tacos.</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <section id="setExtension" class="doc">
+    <h2>
+      swig.setExtension(
+      name
+      , object
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L326">lib/swig.js#L326</a></p>
+
+
+    
+
+  <p>为定制标签增加扩展。在模板中允许任何定制标签通过特殊的全局变量对象<var>_ext</var>来获取全局变量方法。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">name</var></td>
+          <td><code data-language="js">string</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Key name of the extension. Accessed via <code data-language="js">_ext[name]</code>.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">object</var></td>
+          <td><code data-language="js">*</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>The method, value, or object that should be available via the given name.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">undefined</samp>: </p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">swig.setExtension(&#39;trans&#39;, function (v) { return translate(v); });
+function compileTrans(compiler, args, content, parent, options) {
+  return &#39;_output += _ext.trans(&#39; + args[0] + &#39;);&#39;
+};
+swig.setTag(&#39;trans&#39;, parseTrans, compileTrans, true);</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <section id="precompile" class="doc">
+    <h2>
+      swig.precompile(
+      source
+      , options
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L485">lib/swig.js#L485</a></p>
+
+
+    
+
+  <p>将一个source string预编译为一个可缓存的模板函数。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">source</var></td>
+          <td><code data-language="js">string</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Swig template source string.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">options</var></td>
+          <td><code data-language="js">SwigOpts</code></td>
+          <td>✔</td>
+          <td><code data-language="js">{}</code></td>
+          <td>Swig options object.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">object</samp>: Renderable function and tokens object.</p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">swig.precompile(&#39;{{ tacos }}&#39;);
+// =&gt; {
+//      tpl: function (_swig, _locals, _filters, _utils, _fn) { ... },
+//      tokens: {
+//        name: undefined,
+//        parent: null,
+//        tokens: [...],
+//        blocks: {}
+//      }
+//    }
+
+In order to render a pre-compiled template, you must have access to filters and utils from Swig. &lt;var&gt;efn&lt;/var&gt; is simply an empty function that does nothing.</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <section id="render" class="doc">
+    <h2>
+      swig.render(
+      source
+      , options
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L523">lib/swig.js#L523</a></p>
+
+
+    
+
+  <p>为最后的输出编译、渲染模板字符串。</p><p></p><p>当渲染一个source string时，需要在设置选项中指定一个文件路径，这样才能使<var>extends</var>, <var>include</var>, 和 <var>import</var> 正常运行。通过在options参数中增加<code data-language="js">{ filename: '/absolute/path/to/mytpl.html' }</code>来实现。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">source</var></td>
+          <td><code data-language="js">string</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Swig template source string.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">options</var></td>
+          <td><code data-language="js">SwigOpts</code></td>
+          <td>✔</td>
+          <td><code data-language="js">{}</code></td>
+          <td>Swig options object.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">string</samp>: Rendered output.</p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">swig.render(&#39;{{ tacos }}&#39;, { locals: { tacos: &#39;Tacos!!!!&#39; }});
+// =&gt; Tacos!!!!</code></pre>
+    
+    
+  </section>
+  
+
+  
+  <section id="renderFile" class="doc">
+    <h2>
+      swig.renderFile(
+      pathName
+      , locals
+      , cb
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L547">lib/swig.js#L547</a></p>
+
+
+    
+
+  <p>为最后的输出编译、渲染模板文件，对于像Express.js这样的库来说很有用。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">pathName</var></td>
+          <td><code data-language="js">string</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>File location.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">locals</var></td>
+          <td><code data-language="js">object</code></td>
+          <td>✔</td>
+          <td><code data-language="js">{}</code></td>
+          <td>Template variable context.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">cb</var></td>
+          <td><code data-language="js">Function</code></td>
+          <td>✔</td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Asyncronous callback function. If not provided, <var>compileFile</var> will run syncronously.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">string</samp>: Rendered output.</p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">swig.renderFile(&#39;./template.html&#39;, {}, function (err, output) {
+  if (err) {
+    throw err;
+  }
+  console.log(output);
+});</code></pre>
+    
+    <pre><code data-language="js">swig.renderFile(&#39;./template.html&#39;, {});
+// =&gt; output</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+
+  
+  <section id="compile" class="doc">
+    <h2>
+      swig.compile(
+      source
+      , options
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L592">lib/swig.js#L592</a></p>
+
+
+    
+
+  <p>将string source编译成一个可渲染的模板函数。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">source</var></td>
+          <td><code data-language="js">string</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Swig template source string.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">options</var></td>
+          <td><code data-language="js">SwigOpts</code></td>
+          <td>✔</td>
+          <td><code data-language="js">{}</code></td>
+          <td>Swig options object.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">function</samp>: Renderable function with keys for parent, blocks, and tokens.</p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">var tpl = swig.compile(&#39;{{ tacos }}&#39;);
+// =&gt; {
+//      [Function: compiled]
+//      parent: null,
+//      tokens: [{ compile: [Function] }],
+//      blocks: {}
+//    }
+tpl({ tacos: &#39;Tacos!!!!&#39; });
+// =&gt; Tacos!!!!
+
+When compiling a source string, a file path should be specified in the options object in order for &lt;var&gt;extends&lt;/var&gt;, &lt;var&gt;include&lt;/var&gt;, and &lt;var&gt;import&lt;/var&gt; to work properly. Do this by adding &lt;code data-language=&quot;js&quot;&gt;{ filename: &#39;/absolute/path/to/mytpl.html&#39; }&lt;/code&gt; to the options argument.</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <section id="compileFile" class="doc">
+    <h2>
+      swig.compileFile(
+      pathname
+      , options
+      , cb
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L653">lib/swig.js#L653</a></p>
+
+
+    
+
+  <p>将一个source file编译成一个可渲染的模板函数。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">pathname</var></td>
+          <td><code data-language="js">string</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>File location.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">options</var></td>
+          <td><code data-language="js">SwigOpts</code></td>
+          <td>✔</td>
+          <td><code data-language="js">{}</code></td>
+          <td>Swig options object.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">cb</var></td>
+          <td><code data-language="js">Function</code></td>
+          <td>✔</td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Asyncronous callback function. If not provided, <var>compileFile</var> will run syncronously.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">function</samp>: Renderable function with keys for parent, blocks, and tokens.</p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">var tpl = swig.compileFile(&#39;./mytpl.html&#39;);
+// =&gt; {
+//      [Function: compiled]
+//      parent: null,
+//      tokens: [{ compile: [Function] }],
+//      blocks: {}
+//    }
+tpl({ tacos: &#39;Tacos!!!!&#39; });
+// =&gt; Tacos!!!!</code></pre>
+    
+    <pre><code data-language="js">swig.compileFile(&#39;/myfile.txt&#39;, { varControls: [&#39;&lt;%=&#39;, &#39;=%&gt;&#39;], tagControls: [&#39;&lt;%&#39;, &#39;%&gt;&#39;]});
+// =&gt; will compile &#39;myfile.txt&#39; using the var and tag controls as specified.</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <section id="run" class="doc">
+    <h2>
+      swig.run(
+      tpl
+      , locals
+      , filepath
+      )
+    </h2>
+
+    
+<p class="source">Source: <a href="https://github.com/paularmstrong/swig/blob/v2.0.0/lib/swig.js#L715">lib/swig.js#L715</a></p>
+
+
+    
+
+  <p>运行一个预编译的模板函数。在浏览器中，当你已经通过Swig命令行工具预编译了你的模板时最有用。</p>
+
+
+
+    
+    <h3>参数</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Optional</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td><var data-language="js">tpl</var></td>
+          <td><code data-language="js">function</code></td>
+          <td></td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Pre-compiled Swig template function. Use the Swig CLI to compile your templates.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">locals</var></td>
+          <td><code data-language="js">object</code></td>
+          <td>✔</td>
+          <td><code data-language="js">{}</code></td>
+          <td>Template variable context.</td>
+        </tr>
+      
+        <tr>
+          <td><var data-language="js">filepath</var></td>
+          <td><code data-language="js">string</code></td>
+          <td>✔</td>
+          <td><code data-language="js">undefined</code></td>
+          <td>Filename used for caching the template.</td>
+        </tr>
+      
+      </tbody>
+    </table>
+    
+
+    
+    <h3>返回</h3>
+    
+    <p><samp data-language="js">string</samp>: Rendered output.</p>
+    
+    
+
+    
+    <h3>例子</h3>
+    
+    <pre><code data-language="js">$ swig compile ./mytpl.html --wrap-start=&quot;var mytpl = &quot; &gt; mytpl.js</code></pre>
+    
+    <pre><code data-language="js">&lt;script src=&quot;mytpl.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  swig.run(mytpl, {});
+  // =&gt; &quot;rendered template...&quot;
+&lt;/script&gt;</code></pre>
+    
+    
+  </section>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  </div>
+
+  <div class="span3">
+<nav>
+  <ol class="sidenav">
+    <li>
+      <a href="../index.html">开始</a>
+      
+    </li>
+    <li>
+      <a href="index.html">Swig API</a>
+      
+<ol>
+
+
+  <li><a href="#SwigOpts">Object: SwigOpts</a></li>
+
+
+
+  <li><a href="#CacheOptions">Object: CacheOptions</a></li>
+
+
+
+  <li><a href="#TemplateLoader">Object: TemplateLoader</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="#version">swig.version</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="#setDefaults">swig.setDefaults</a></li>
+
+
+
+
+
+  <li><a href="#setDefaultTZOffset">swig.setDefaultTZOffset</a></li>
+
+
+
+
+
+  <li><a href="#Swig">swig.Swig</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="#invalidateCache">swig.invalidateCache</a></li>
+
+
+
+
+
+  <li><a href="#setFilter">swig.setFilter</a></li>
+
+
+
+
+
+  <li><a href="#setTag">swig.setTag</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="#setExtension">swig.setExtension</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="#precompile">swig.precompile</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="#render">swig.render</a></li>
+
+
+
+  <li><a href="#renderFile">swig.renderFile</a></li>
+
+
+
+
+
+
+
+  <li><a href="#compile">swig.compile</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="#compileFile">swig.compileFile</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="#run">swig.run</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+
+    </li>
+    <li>
+      <a href="../filters/index.html">过滤器</a>
+      
+    </li>
+    <li>
+      <a href="../tags/index.html">标签</a>
+      
+    </li>
+    <li>
+      <a href="../loaders/index.html">模板加载器</a>
+      
+    </li>
+    <li>
+      <a href="../cli/index.html">命令行</a>
+      
+    </li>
+    <li>
+      <a href="../browser/index.html">浏览器用法</a>
+      
+    </li>
+    <li>
+      <a href="../extending/index.html">扩展Swig</a>
+      
+    </li>
+    <li><a href="../previous/index.html">旧版本</a></li>
+  </ol>
+</nav>
+</div>
+</div>
+
+
+<footer class="content">
+  <hr class="small">
+  <p>Swig is copyright &copy;2016 <a href="http://paularmstrongdesigns.com/">Paul Armstrong</a>, licensed for use under the permissive MIT Open Source License.</p>
+  <a class="forkme" href="https://github.com/paularmstrong/swig">Fork me on GitHub</a>
+</footer>
+
+
+  
+<script src="../../js/lib/rainbow.min.js"></script>
+<script src="../../js/master.js"></script>
+
+</body>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/api/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:48 GMT -->
+</html>

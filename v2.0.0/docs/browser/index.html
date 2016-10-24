@@ -1,0 +1,142 @@
+
+  
+<!doctype html>
+<html>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/browser/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  
+  <!--[if IE]>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <![endif]-->
+  <title>Swig » 文档 &raquo; 浏览器用法</title>
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="../../css/swig.css">
+
+
+
+</head>
+<body class="">
+
+  
+
+
+<header class="header">
+  <div class="content row">
+    <hgroup class="span7">
+      <h1><a href="../../index.html">Swig</a></h1>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
+    </hgroup>
+    
+    <nav class="span5">
+      <ul class="mainNav">
+        <li><a href="../index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
+      </ul>
+    </nav>
+  
+  </div>
+</header>
+
+
+
+<div class="content row guttered">
+  <div class="span9">
+  
+<h1>在浏览器中使用Swig</h1>
+
+<p>Swig在浏览器中的运行方式和在node.js中的运行方式大体相同。唯一的不同在于：Swig不能通过路径名字来查找文件，除非你直接提前告诉Swig每一个模板路径的名字是什么。</p>
+
+<p>简单的说，如果没有提前被告知<var>./myfile.html</var>，则Swig无法确定指令<code data-language="swig">{% extends "./myfile.html" %}</code> 和 <code data-language="swig">{% include "./myfile.html" %}</code>中的文件。</p>
+
+<p>关于这点最好的方式就是使用 <a href="../cli/index.html">命令行接口</a> 预编译你的模板。</p>
+
+<ol>
+  <li>
+    <p>将每个模板编译成JavaScript文件，并给输出分配一个方法名，这样就可以在浏览器中全局访问该变量。</p>
+    <pre><code data-language="sh">$ swig compile myfile.html --method-name=myfile > myfile.js</code></pre>
+  </li>
+  <li>
+    <p>将Swig和 <samp>myfile.js</samp> 引入浏览器。</p>
+    <pre><code data-language="html">&lt;script src="swig.min.js"&gt;&lt;/script&gt;
+&lt;script src="myfile.js"&gt;&lt;/script&gt;
+</code></pre>
+  </li>
+  <li>
+    <p>预运行模板，为Swig缓存做好准备工作。</p>
+    <pre><code data-language="js">swig.run(myfile, {}, '/myfile.html');</code></pre>
+  </li>
+  <li>
+    <p>现在，你就可以在浏览器中渲染模板了，并可以导出 <samp>myfile.html</samp></p>
+    <pre><code data-language="js">var tpl = '{% extends "./myfile.html" %}{% block content %}{{ stuff }}{% endblock %}';
+var output = swig.render(tpl, { filename: '/tpl', locals: { stuff: 'awesome' }});
+document.querySelector('#foo').innerHTML = output;</code></pre>
+  </li>
+</ol>
+
+  </div>
+
+  <div class="span3">
+<nav>
+  <ol class="sidenav">
+    <li>
+      <a href="../index.html">开始</a>
+      
+    </li>
+    <li>
+      <a href="../api/index.html">Swig API</a>
+      
+    </li>
+    <li>
+      <a href="../filters/index.html">过滤器</a>
+      
+    </li>
+    <li>
+      <a href="../tags/index.html">标签</a>
+      
+    </li>
+    <li>
+      <a href="../loaders/index.html">模板加载器</a>
+      
+    </li>
+    <li>
+      <a href="../cli/index.html">命令行</a>
+      
+    </li>
+    <li>
+      <a href="index.html">浏览器用法</a>
+      
+    </li>
+    <li>
+      <a href="../extending/index.html">扩展Swig</a>
+      
+    </li>
+    <li><a href="../previous/index.html">旧版本</a></li>
+  </ol>
+</nav>
+</div>
+</div>
+
+
+<footer class="content">
+  <hr class="small">
+  <p>Swig is copyright &copy;2016 <a href="http://paularmstrongdesigns.com/">Paul Armstrong</a>, licensed for use under the permissive MIT Open Source License.</p>
+  <a class="forkme" href="https://github.com/paularmstrong/swig">Fork me on GitHub</a>
+</footer>
+
+
+  
+<script src="../../js/lib/rainbow.min.js"></script>
+<script src="../../js/master.js"></script>
+
+</body>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/docs/browser/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:49 GMT -->
+</html>

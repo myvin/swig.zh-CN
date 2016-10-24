@@ -1,0 +1,153 @@
+
+  
+<!doctype html>
+<html>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  
+  <!--[if IE]>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <![endif]-->
+  <title>Swig - 一个适用于Node.js和浏览器的模板引擎</title>
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="css/swig.css">
+
+
+
+</head>
+<body class="">
+
+  
+
+
+<header class="header">
+  <div class="content row">
+    <hgroup class="span7">
+      <h1><a href="index.html">Swig</a></h1>
+      <h2>一个适用于Node.js和浏览器的模板引擎</h2>
+    </hgroup>
+    
+    <nav class="span5">
+      <ul class="mainNav">
+        <li><a href="docs/index.html">文档</a></li>
+        <li><a href="https://github.com/paularmstrong/swig/">代码</a></li>
+      </ul>
+    </nav>
+  
+  </div>
+</header>
+
+
+
+
+<section class="content">
+  <h1>Swig</h1>
+
+  <div class="row guttered">
+    <p class="span6">一个简单、强大、灵活的模板引擎</p>
+    <p class="span6">当前版本: <strong>v2.0.0</strong>. <a href="docs/previous/index.html">查看之前的版本？</a></p>
+  </div>
+
+  <hr class="small">
+
+  <div class="row guttered">
+
+    <section class="span6">
+      <h2>快速开始</h2>
+
+      <p>进一步学习使用请参考<a href="docs/index.html">开始文档</a>。</p>
+
+      <h3>安装Swig</h3>
+      <pre><code>npm install swig --save</code></pre>
+
+      <h3>创建模板</h3>
+      <pre><code data-language="swig">&lt;h1&gt;{{ pagename|title }}&lt;/h1&gt;
+&lt;ul&gt;
+{% for author in authors %}
+  &lt;li{% if loop.first %} class="first"{% endif %}&gt;
+    {{ author }}
+  &lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;</code></pre>
+
+      <h3>渲染模板</h3>
+      <pre><code data-language="javascript">var swig  = require('swig');
+swig.renderFile('/path/to/template.html', {
+    pagename: 'awesome people',
+    authors: ['Paul', 'Jim', 'Jane']
+});</code></pre>
+
+      <h3>渲染结果</h3>
+      <pre><code data-language="html">&lt;h1&gt;Awesome People&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li class="first"&gt;Paul&lt;/li&gt;
+  &lt;li&gt;Jim&lt;/li&gt;
+  &lt;li&gt;Jane&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </section>
+
+    <section class="span6">
+      <h2>特点</h2>
+      <ul>
+        <li>适用于node.js <em>和</em>大部分浏览器</li>
+        <li>使用和Django、Jinja2、wig模板引擎相似的方法</li>
+        <li><a href="http://expressjs.com/">Express</a> 兼容</li>
+        <li>面向对象的模板继承</li>
+        <li>医用过滤器和转换输出</li>
+        <li>自动转义输出为安全的HTML渲染</li>
+        <li>支持迭代和条件判断</li>
+        <li>健壮不臃肿</li>
+        <li>灵活可定制</li>
+        <li><a href="coverage.html">代码覆盖率</a>高</li>
+      </ul>
+
+      <hr class="small">
+
+      <h2>下载浏览器版本</h2>
+      <p>Swig支持所有的主流浏览器，只要下载下面的文件并阅读<a href="docs/index.html#browser">相关文档</a>即可。</p>
+      <p class="download">
+        <a href="js/swig.min.js" class="btn">下载v2.0.0版本</a><br><br>
+        <a href="js/swig.js">开发版</a> | <a href="js/swig.min.js">生产版</a> (<a href="js/swig.js.json">source map</a>)
+      </p>
+
+      <hr class="small">
+
+      <h2>资源</h2>
+
+       <ul>
+         <li><a href="https://groups.google.com/forum/#!forum/swig-templates">邮件列表</a></li>
+         <li><a href="https://travis-ci.org/paularmstrong/swig/builds">Travis CI Build History</a></li>
+         <li><a href="https://github.com/paularmstrong/swig/issues">反馈Bug</a></li>
+         <li><a href="http://stackoverflow.com/questions/tagged/swig-template">Stack Overflow上的相关问题</a></li>
+         <li><a href="https://github.com/jonschlinkert/sublime-swig">Sublime Text语法高亮</a></li>
+       </ul>
+
+    </section>
+
+  </div>
+</section>
+
+
+<footer class="content">
+  <hr class="small">
+  <p>Swig is copyright &copy;2016 <a href="http://paularmstrongdesigns.com/">Paul Armstrong</a>, licensed for use under the permissive MIT Open Source License.</p>
+  <a class="forkme" href="https://github.com/paularmstrong/swig">Fork me on GitHub</a>
+</footer>
+
+
+  
+<script src="js/lib/rainbow.min.js"></script>
+<script src="js/master.js"></script>
+
+</body>
+
+<!-- Mirrored from node-swig.github.io/swig-templates/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Oct 2016 04:04:46 GMT -->
+</html>
